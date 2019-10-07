@@ -5,8 +5,9 @@ entity mux2e is
   port(
     sel : in std_logic;                      
     a   : in std_logic_vector(9 downto 0);   
-    b   : in std_logic_vector(9 downto 0);  
-	 out_mux2e : in std_logic_vector(9 downto 0) 
+    b   : in std_logic_vector(9 downto 0);
+	 --y   : in std_logic_vector(9 downto 0);	 
+	 out_mux2e : out std_logic_vector(9 downto 0) 
     
   );
 end mux2e;
@@ -18,9 +19,9 @@ begin
   process(sel, a, b)
   begin
     if (sel = '0') then
-      y <= a;
+      out_mux2e <= a;
     else
-      y <= b;
+      out_mux2e <= b;
     end if;
   end process;
 

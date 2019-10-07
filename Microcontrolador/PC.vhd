@@ -17,8 +17,8 @@ architecture behavioral of PC is
 begin
 			process(rising_edge(clk))
 			begin
-					if ((pc_ld)=="1") then
-							addr_out<=addr_in;
-					end if;
+					--if ((pc_ld)=="1") then
+						--	addr_out<=addr_in;
+					--end if;
 			end process;
 end behavioral;
