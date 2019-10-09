@@ -1,25 +1,34 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 entity ALU is 
 	port (
 		op_sel: in std_logic_vector(4 downto 0);
-		d1    : in std_logic_vector(1 downto 0);
-		d2    : in std_logic_vector(1 downto 0);
-		op_out: in std_logic_vector(4 downto 0);
+		val1    : in std_logic_vector(7 downto 0);
+		val2    : in std_logic_vector(7 downto 0);
+		op_out: out std_logic_vector(7 downto 0);
+		--flag: out std_logic_vector(3 downto 0);
 		clk: in std_logic;
-		
-	)
+		clr: in std_logic
+	);
+end ALU;
 architecture behavioral of ALU is
+signal result : std_logic_vector(7 downto 0);
 begin 
 	process (clk)
-		begin 
+	begin 
 			case(op_sel) is 
-				when "000000" => op_out <= unsigned(d1) + unsigned(d2);
-				when "000001" => op_out  <= unsigned(d1) - unsigned(d2);
-				
-				
+				when "000000" => result <= val1 + val2;
+				--when "000001" => result <= val1 - val2;
+				when "000010" => result <= val1;--store,move, a UP que vai carregar o resultado da ALU na memória, a alu só passa adiante.
+				when "000011" => result <= val1 AND val2;		--AND,IAND
+				when "000100" => result <= val1 OR val2;		--OR,IOR
+				when "000101" => result <= NOT 	val1;		--NOT,INOT
+				when "000111" => result <= val1 XOR val2	;	--XOR,IXOR
+			end case;
+	--op_out <= signed(result);
 					
-		end process
-end behavioral
+	end process;
+end behavioral;
