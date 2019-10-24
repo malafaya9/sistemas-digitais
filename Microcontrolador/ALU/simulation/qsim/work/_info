@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Aluno\Downloads\sistemas-digitais-master\Microcontrolador\ALU\simulation\qsim
+vALU
+Z1 !s100 5>dBjG4N;embV68O[35;c1
+Z2 I09RfSJXK^Mi=YU?ffb9X@0
+Z3 V9iV0jAWA[`eX[JcVMc?ib0
+Z4 dC:\Users\Aluno\Downloads\sistemas-digitais-master\Microcontrolador\ALU\simulation\qsim
+Z5 w1571064269
+Z6 8ALU.vo
+Z7 FALU.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|ALU.vo|
+Z10 o-work work -O0
+Z11 n@a@l@u
+!i10b 1
+!s85 0
+Z12 !s108 1571064270.744000
+Z13 !s107 ALU.vo|
+!s101 -O0
+vALU_vlg_check_tst
+!i10b 1
+Z14 !s100 3V<oHFML_6DCg@O7H5b4]1
+Z15 IQ4TA2;oEK7WcC_nAK1YlM1
+Z16 VOlXjBfUcI5Ihn_AbP8I;U0
+R4
+Z17 w1571064268
+Z18 8ALU.vt
+Z19 FALU.vt
+L0 65
+R8
+r1
+!s85 0
+31
+Z20 !s108 1571064270.842000
+Z21 !s107 ALU.vt|
+Z22 !s90 -work|work|ALU.vt|
+!s101 -O0
+R10
+Z23 n@a@l@u_vlg_check_tst
+vALU_vlg_sample_tst
+!i10b 1
+Z24 !s100 0Ae;TSoXne5KzEnIclPAk0
+Z25 I6;DQh9;R2BZWM7HEW_2MP3
+Z26 V77K]OC3KbiGZ<3;`UZ`GP3
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@a@l@u_vlg_sample_tst
+vALU_vlg_vec_tst
+!i10b 1
+!s100 l>bUS8oI1Io8DE_22zmf40
+IR^Ni]2kfLEJ^F60jmlQdB2
+Z28 V>bFnnU[^IecCM5^<l3;]W0
+R4
+R17
+R18
+R19
+Z29 L0 285
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z30 n@a@l@u_vlg_vec_tst

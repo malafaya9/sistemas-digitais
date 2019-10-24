@@ -1,0 +1,27 @@
+# do REG16.do 
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module REG16
+# 
+# Top level modules:
+# 	REG16
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module REG16_vlg_sample_tst
+# -- Compiling module REG16_vlg_check_tst
+# -- Compiling module REG16_vlg_vec_tst
+# 
+# Top level modules:
+# 	REG16_vlg_vec_tst
+# vsim -L cycloneii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.REG16_vlg_vec_tst 
+# Loading work.REG16_vlg_vec_tst
+# Loading work.REG16
+# Loading cycloneii_ver.cycloneii_io
+# Loading cycloneii_ver.cycloneii_mux21
+# Loading cycloneii_ver.cycloneii_dffe
+# Loading cycloneii_ver.cycloneii_asynch_io
+# Loading cycloneii_ver.cycloneii_lcell_ff
+# Loading work.REG16_vlg_sample_tst
+# Loading work.REG16_vlg_check_tst
+# Loading cycloneii_ver.CYCLONEII_PRIM_DFFE
+# Simulation passed !
+# ** Note: $finish    : REG16.vt(423)
+#    Time: 1 us  Iteration: 0  Instance: /REG16_vlg_vec_tst/tb_out

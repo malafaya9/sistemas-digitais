@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Aluno\Downloads\sistemas-digitais-master\Microcontrolador\MUX2E\simulation\qsim
+vMUX2E
+Z1 !s100 dUC9_5h`kDf:ZfWCS?HY;1
+Z2 IE`U59kSE8_k@j1gJo62lS1
+Z3 VG<_z8X1^dceIiGGPzk?8`1
+Z4 dC:\Users\Aluno\Downloads\sistemas-digitais-master\Microcontrolador\MUX2E\simulation\qsim
+Z5 w1571065005
+Z6 8MUX2E.vo
+Z7 FMUX2E.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|MUX2E.vo|
+Z10 o-work work -O0
+Z11 n@m@u@x2@e
+!i10b 1
+!s85 0
+Z12 !s108 1571065006.796000
+Z13 !s107 MUX2E.vo|
+!s101 -O0
+vMUX2E_vlg_check_tst
+!i10b 1
+Z14 !s100 UR=efE60hmhE_i]RDNcRQ3
+Z15 I?6EK?dAclg;aI4P<oTe;01
+Z16 VkedJ6Af[dH2E6NGjV8OoO1
+R4
+Z17 w1571065004
+Z18 8MUX2E.vt
+Z19 FMUX2E.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z20 !s108 1571065006.894000
+Z21 !s107 MUX2E.vt|
+Z22 !s90 -work|work|MUX2E.vt|
+!s101 -O0
+R10
+Z23 n@m@u@x2@e_vlg_check_tst
+vMUX2E_vlg_sample_tst
+!i10b 1
+Z24 !s100 R9]z=Q>F=V^Wdn8Ni7UT]3
+Z25 IJaC_^o<S2SlKX?6TRR79F1
+Z26 Vi]M`Wc9Yz4kiC7o^3ZVCR1
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@m@u@x2@e_vlg_sample_tst
+vMUX2E_vlg_vec_tst
+!i10b 1
+!s100 NGG=KWz2O`?e0?B8mOIGZ2
+IW0I1ciWUgNe60h3N<QEOJ3
+Z28 VNd:I<GUBkzSmTTEkS4d@g3
+R4
+R17
+R18
+R19
+Z29 L0 317
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z30 n@m@u@x2@e_vlg_vec_tst

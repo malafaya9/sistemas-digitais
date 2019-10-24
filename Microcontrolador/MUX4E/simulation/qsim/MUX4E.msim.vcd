@@ -1,0 +1,162 @@
+$comment
+	File created using the following command:
+		vcd file MUX4E.msim.vcd -direction
+$end
+$date
+	Wed Oct 16 11:49:20 2019
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module MUX4E_vlg_vec_tst $end
+$var reg 8 ! a [7:0] $end
+$var reg 8 " b [7:0] $end
+$var reg 8 # c [7:0] $end
+$var reg 8 $ d [7:0] $end
+$var reg 2 % sel [1:0] $end
+$var wire 1 & out_mux [7] $end
+$var wire 1 ' out_mux [6] $end
+$var wire 1 ( out_mux [5] $end
+$var wire 1 ) out_mux [4] $end
+$var wire 1 * out_mux [3] $end
+$var wire 1 + out_mux [2] $end
+$var wire 1 , out_mux [1] $end
+$var wire 1 - out_mux [0] $end
+$var wire 1 . sampler $end
+$scope module i1 $end
+$var wire 1 / gnd $end
+$var wire 1 0 vcc $end
+$var wire 1 1 unknown $end
+$var tri1 1 2 devclrn $end
+$var tri1 1 3 devpor $end
+$var tri1 1 4 devoe $end
+$var wire 1 5 Mux7~0_combout $end
+$var wire 1 6 Mux7~1_combout $end
+$var wire 1 7 Mux6~0_combout $end
+$var wire 1 8 Mux6~1_combout $end
+$var wire 1 9 Mux5~0_combout $end
+$var wire 1 : Mux5~1_combout $end
+$var wire 1 ; Mux4~0_combout $end
+$var wire 1 < Mux4~1_combout $end
+$var wire 1 = Mux3~0_combout $end
+$var wire 1 > Mux3~1_combout $end
+$var wire 1 ? Mux2~0_combout $end
+$var wire 1 @ Mux2~1_combout $end
+$var wire 1 A Mux1~0_combout $end
+$var wire 1 B Mux1~1_combout $end
+$var wire 1 C Mux0~0_combout $end
+$var wire 1 D Mux0~1_combout $end
+$var wire 1 E c~combout [7] $end
+$var wire 1 F c~combout [6] $end
+$var wire 1 G c~combout [5] $end
+$var wire 1 H c~combout [4] $end
+$var wire 1 I c~combout [3] $end
+$var wire 1 J c~combout [2] $end
+$var wire 1 K c~combout [1] $end
+$var wire 1 L c~combout [0] $end
+$var wire 1 M sel~combout [1] $end
+$var wire 1 N sel~combout [0] $end
+$var wire 1 O b~combout [7] $end
+$var wire 1 P b~combout [6] $end
+$var wire 1 Q b~combout [5] $end
+$var wire 1 R b~combout [4] $end
+$var wire 1 S b~combout [3] $end
+$var wire 1 T b~combout [2] $end
+$var wire 1 U b~combout [1] $end
+$var wire 1 V b~combout [0] $end
+$var wire 1 W a~combout [7] $end
+$var wire 1 X a~combout [6] $end
+$var wire 1 Y a~combout [5] $end
+$var wire 1 Z a~combout [4] $end
+$var wire 1 [ a~combout [3] $end
+$var wire 1 \ a~combout [2] $end
+$var wire 1 ] a~combout [1] $end
+$var wire 1 ^ a~combout [0] $end
+$var wire 1 _ d~combout [7] $end
+$var wire 1 ` d~combout [6] $end
+$var wire 1 a d~combout [5] $end
+$var wire 1 b d~combout [4] $end
+$var wire 1 c d~combout [3] $end
+$var wire 1 d d~combout [2] $end
+$var wire 1 e d~combout [1] $end
+$var wire 1 f d~combout [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11010000 !
+b101100 "
+b1000101 #
+b101001 $
+b11 %
+1-
+0,
+0+
+1*
+0)
+1(
+0'
+0&
+x.
+0/
+10
+x1
+12
+13
+14
+15
+16
+17
+08
+19
+0:
+1;
+1<
+1=
+0>
+1?
+1@
+1A
+0B
+1C
+0D
+1L
+0K
+1J
+0I
+0H
+0G
+1F
+0E
+1N
+1M
+0V
+0U
+1T
+1S
+0R
+1Q
+0P
+0O
+0^
+0]
+0\
+0[
+1Z
+0Y
+1X
+1W
+1f
+0e
+0d
+1c
+0b
+1a
+0`
+0_
+$end
+#1000000

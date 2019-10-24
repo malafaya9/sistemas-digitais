@@ -1,0 +1,38 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MUX5E is
+  port(
+    sel : in std_logic_vector(1 downto 0);                      
+    a   : in std_logic_vector(7 downto 0);   
+    b   : in std_logic_vector(7 downto 0);
+	 c   : in std_logic_vector(7 downto 0);
+	 d   : in std_logic_vector(7 downto 0);
+	 e   : in std_logic_vector(7 downto 0);
+	 --y   : in std_logic_vector(9 downto 0);	 
+	 out_mux : out std_logic_vector(7 downto 0) 
+    
+  );
+end MUX5E;
+
+
+architecture dataflow of MUX4E is
+
+begin
+  process(sel, a, b, c, d, e)
+  begin
+	case sel is
+		when "000" =>
+			out_mux <= a;
+		when "001" =>
+			out_mux <= b;
+		when "010" =>
+			out_mux <= c;
+		when "011" =>
+			out_mux <= d;
+		when "100" =>
+			out_mux <= e;
+	end case;
+  end process;
+
+end dataflow;

@@ -1,0 +1,20 @@
+|GG210
+clk => ~NO_FANOUT~
+cin[0] => ~NO_FANOUT~
+cin[1] => ~NO_FANOUT~
+cin[2] => ~NO_FANOUT~
+cin[3] => ~NO_FANOUT~
+cin[4] => ~NO_FANOUT~
+cin[5] => ~NO_FANOUT~
+cin[6] => ~NO_FANOUT~
+cin[7] => ~NO_FANOUT~
+cout[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout[1] <= cout[1].DB_MAX_OUTPUT_PORT_TYPE
+cout[2] <= cout[2].DB_MAX_OUTPUT_PORT_TYPE
+cout[3] <= cout[3].DB_MAX_OUTPUT_PORT_TYPE
+cout[4] <= cout[4].DB_MAX_OUTPUT_PORT_TYPE
+cout[5] <= cout[5].DB_MAX_OUTPUT_PORT_TYPE
+cout[6] <= cout[6].DB_MAX_OUTPUT_PORT_TYPE
+cout[7] <= cout[7].DB_MAX_OUTPUT_PORT_TYPE
+
+

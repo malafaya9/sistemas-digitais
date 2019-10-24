@@ -1,0 +1,43 @@
+|MUX2E
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+sel => out_mux.OUTPUTSELECT
+a[0] => out_mux.DATAB
+a[1] => out_mux.DATAB
+a[2] => out_mux.DATAB
+a[3] => out_mux.DATAB
+a[4] => out_mux.DATAB
+a[5] => out_mux.DATAB
+a[6] => out_mux.DATAB
+a[7] => out_mux.DATAB
+a[8] => out_mux.DATAB
+a[9] => out_mux.DATAB
+b[0] => out_mux.DATAA
+b[1] => out_mux.DATAA
+b[2] => out_mux.DATAA
+b[3] => out_mux.DATAA
+b[4] => out_mux.DATAA
+b[5] => out_mux.DATAA
+b[6] => out_mux.DATAA
+b[7] => out_mux.DATAA
+b[8] => out_mux.DATAA
+b[9] => out_mux.DATAA
+out_mux[0] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[1] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[2] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[3] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[4] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[5] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[6] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[7] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[8] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+out_mux[9] <= out_mux.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Aluno\Desktop\sistemas-digitais-master\Microcontrolador\MUX4E\simulation\qsim
+vMUX4E
+Z1 !s100 SIGhaziH7fJCTSBbDiCDD1
+Z2 ImfQa`>Vd_kzzSzk;m6mU^1
+Z3 V>>W4@B@l[mI_3b:RK:HD[3
+Z4 dC:\Users\Aluno\Desktop\sistemas-digitais-master\Microcontrolador\MUX4E\simulation\qsim
+Z5 w1571237358
+Z6 8MUX4E.vo
+Z7 FMUX4E.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|MUX4E.vo|
+Z10 o-work work -O0
+Z11 n@m@u@x4@e
+!i10b 1
+!s85 0
+Z12 !s108 1571237359.895000
+Z13 !s107 MUX4E.vo|
+!s101 -O0
+vMUX4E_vlg_check_tst
+!i10b 1
+Z14 !s100 YZ4YiiS4_k7lIB@<_J<RC1
+Z15 IYW`_P8_CzT=3TiAozlXfB2
+Z16 V1_A`:GN?F`aFLCHh09TCO0
+R4
+Z17 w1571237357
+Z18 8MUX4E.vt
+Z19 FMUX4E.vt
+L0 65
+R8
+r1
+!s85 0
+31
+Z20 !s108 1571237360.051000
+Z21 !s107 MUX4E.vt|
+Z22 !s90 -work|work|MUX4E.vt|
+!s101 -O0
+R10
+Z23 n@m@u@x4@e_vlg_check_tst
+vMUX4E_vlg_sample_tst
+!i10b 1
+Z24 !s100 RhM0<_O]<=PQChmeQhUez3
+Z25 IWl^1lZ<EZI2z9Xig9N]^=2
+Z26 VOeRbdEYn3cB2oiZ1@o;kX3
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@m@u@x4@e_vlg_sample_tst
+vMUX4E_vlg_vec_tst
+!i10b 1
+!s100 GBG5`I[^QHV[DL?YDAlo82
+IdBRKCFaB73`Z8jIE4]0F61
+Z28 VJOXRR]@MZZgEn8CmBId@<1
+R4
+R17
+R18
+R19
+Z29 L0 285
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z30 n@m@u@x4@e_vlg_vec_tst

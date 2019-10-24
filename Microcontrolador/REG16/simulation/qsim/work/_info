@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Aluno\Desktop\sistemas-digitais-master\Microcontrolador\REG16\simulation\qsim
+vREG16
+Z1 I77bHf1FfdI9Sec>c;Y4KL1
+Z2 VVLENnH:f8oek5b>??3DE43
+Z3 dC:\Users\Aluno\Desktop\sistemas-digitais-master\Microcontrolador\REG16\simulation\qsim
+Z4 w1571239961
+Z5 8REG16.vo
+Z6 FREG16.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 n@r@e@g16
+!i10b 1
+Z10 !s100 VUl1IfJaOBl39?iEbCh1L2
+!s85 0
+Z11 !s108 1571239962.053000
+Z12 !s107 REG16.vo|
+Z13 !s90 -work|work|REG16.vo|
+!s101 -O0
+vREG16_vlg_check_tst
+!i10b 1
+!s100 R8fM<4QOGhiZ1]aaT^OW=2
+I<ZV`MXY=:SP?h=`VHn]aD0
+Vz<^d9Q?b5S^>dJ@9ZjKoo2
+R3
+Z14 w1571239960
+Z15 8REG16.vt
+Z16 FREG16.vt
+L0 63
+R7
+r1
+!s85 0
+31
+Z17 !s108 1571239962.147000
+Z18 !s107 REG16.vt|
+Z19 !s90 -work|work|REG16.vt|
+!s101 -O0
+R8
+n@r@e@g16_vlg_check_tst
+vREG16_vlg_sample_tst
+!i10b 1
+!s100 0X5m;OCeAKIHLfRJS:Xb?0
+I]hUcNSEb9oMAfO_E@WkbT3
+V3V0^[HZ_34nFhV:6FHL=92
+R3
+R14
+R15
+R16
+L0 29
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R8
+n@r@e@g16_vlg_sample_tst
+vREG16_vlg_vec_tst
+!i10b 1
+!s100 gWJ<b@Nlz1d;h:dM2hJN40
+ID:domd[^PBCb^3<7gSozV3
+V`<f>`[:il:k_d^22D;1?g2
+R3
+R14
+R15
+R16
+L0 427
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R8
+n@r@e@g16_vlg_vec_tst
