@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Crowler\Documents\GitHub\sistemas-digitais\Microcontrolador\COMP\simulation\qsim
+vCOMP
+Z1 IO]j;e]W7STRmJCHXVn98K1
+Z2 VJbgb4n2;VbgXISg]EKmKU2
+Z3 dC:\Users\Crowler\Documents\GitHub\sistemas-digitais\Microcontrolador\COMP\simulation\qsim
+Z4 w1573014472
+Z5 8COMP.vo
+Z6 FCOMP.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 n@c@o@m@p
+!i10b 1
+Z10 !s100 9IbT`DzNJXGzk<iEMXmn[0
+!s85 0
+Z11 !s108 1573014476.458000
+Z12 !s107 COMP.vo|
+Z13 !s90 -work|work|COMP.vo|
+!s101 -O0
+vCOMP_vlg_check_tst
+!i10b 1
+!s100 S]V=WzgH]hI4MPiI_088O3
+I>li35aCWlD3?^czfPcgk:3
+VHhYaWa@A2Xj2bgnng1NOP0
+R3
+Z14 w1573014471
+Z15 8COMP.vt
+Z16 FCOMP.vt
+L0 59
+R7
+r1
+!s85 0
+31
+Z17 !s108 1573014476.708000
+Z18 !s107 COMP.vt|
+Z19 !s90 -work|work|COMP.vt|
+!s101 -O0
+R8
+n@c@o@m@p_vlg_check_tst
+vCOMP_vlg_sample_tst
+!i10b 1
+!s100 H2UCA0P<E0OfnDeBbQgfl1
+IVggAzM5@Znzkd?K=e^LDN3
+V733Y9cm6<Ehc9[zbd9j0`0
+R3
+R14
+R15
+R16
+L0 29
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R8
+n@c@o@m@p_vlg_sample_tst
+vCOMP_vlg_vec_tst
+!i10b 1
+!s100 N7`Jh@4cL^L[gA=kSjOUe0
+IGcGZ<@eeiYB>7G^6Mb7hT1
+VlLDBFL01R5Rb8LhRk_TfD0
+R3
+R14
+R15
+R16
+L0 208
+R7
+r1
+!s85 0
+31
+R17
+R18
+R19
+!s101 -O0
+R8
+n@c@o@m@p_vlg_vec_tst
