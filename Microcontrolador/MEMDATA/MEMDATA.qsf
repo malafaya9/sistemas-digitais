@@ -16,16 +16,16 @@
 #
 # -------------------------------------------------------------------------- #
 #
-# Quartus II 64-Bit
-# Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-# Date created = 13:10:09  October 02, 2019
+# Quartus II 32-bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 11:55:13  November 06, 2019
 #
 # -------------------------------------------------------------------------- #
 #
 # Notes:
 #
 # 1) The default values for assignments are stored in the file:
-#		GG210_assignment_defaults.qdf
+#		MEMDATA_assignment_defaults.qdf
 #    If this file doesn't exist, see file:
 #		assignment_defaults.qdf
 #
@@ -38,32 +38,14 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C35F672C6
-set_global_assignment -name TOP_LEVEL_ENTITY GG210
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:10:09  OCTOBER 02, 2019"
-set_global_assignment -name LAST_QUARTUS_VERSION 13.0
+set_global_assignment -name TOP_LEVEL_ENTITY MEMDATA
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:55:13  NOVEMBER 06, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE MEMDATA/MEMDATA.vhd
-set_global_assignment -name VHDL_FILE COMP0/COMP0.vhd
-set_global_assignment -name VHDL_FILE COMP/COMP.vhd
-set_global_assignment -name VHDL_FILE REG16/REG16.vhd
-set_global_assignment -name VHDL_FILE REG8/REG8.vhd
-set_global_assignment -name VHDL_FILE MUX5E/MUX5E.vhd
-set_global_assignment -name VHDL_FILE MUX4E/MUX4E.vhd
-set_global_assignment -name VHDL_FILE PC/PC.vhd
-set_global_assignment -name VHDL_FILE MUX2E/MUX2E.vhd
-set_global_assignment -name VHDL_FILE ALU/ALU.vhd
-set_global_assignment -name VHDL_FILE GG210.vhd
-set_global_assignment -name VHDL_FILE DATA/DATA.vhd
-set_global_assignment -name VHDL_FILE PRGDATA/PRGDATA.vhd
+set_global_assignment -name QIP_FILE MEMDATA.qip
