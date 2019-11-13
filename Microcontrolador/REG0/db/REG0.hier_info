@@ -1,0 +1,20 @@
+|REG0
+clk => ~NO_FANOUT~
+data_in[0] => ~NO_FANOUT~
+data_in[1] => ~NO_FANOUT~
+data_in[2] => ~NO_FANOUT~
+data_in[3] => ~NO_FANOUT~
+data_in[4] => ~NO_FANOUT~
+data_in[5] => ~NO_FANOUT~
+data_in[6] => ~NO_FANOUT~
+data_in[7] => ~NO_FANOUT~
+data_out[0] <= <GND>
+data_out[1] <= <GND>
+data_out[2] <= <GND>
+data_out[3] <= <GND>
+data_out[4] <= <GND>
+data_out[5] <= <GND>
+data_out[6] <= <GND>
+data_out[7] <= <GND>
+
+

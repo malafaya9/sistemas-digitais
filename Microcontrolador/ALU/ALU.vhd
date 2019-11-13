@@ -8,8 +8,8 @@ entity ALU is
 		op_sel: in std_logic_vector(3 downto 0);
 		val1    : in std_logic_vector(7 downto 0);
 		val2    : in std_logic_vector(7 downto 0);
-		op_out: out std_logic_vector(7 downto 0);
-		flag: out std_logic_vector(3 downto 0)
+		op_out: out std_logic_vector(7 downto 0)
+		--flag: out std_logic_vector(3 downto 0)
 	);
 end ALU;
 architecture behavioral of ALU is
