@@ -6,8 +6,26 @@ entity GG210 is
 	port
 	(
 	clk:in std_logic;
-	alu_sel: in std_logic_vector(3 downto 0)
-	--cout: out std_logic_vector(7 downto 0)
+	alu_sel: in std_logic_vector(3 downto 0);
+	sel_mux4e : in std_LOGIC_VECTOR(1 downto 0);
+	pc_ld : in std_LOGIC;
+	pc_clr : in std_LOGIC;
+	R1_ld :in std_LOGIC ;
+	R2_ld :in std_LOGIC ;
+	R3_ld :in std_LOGIC ;
+	R1_clr :in std_LOGIC ;
+	R2_clr :in std_LOGIC;
+	R3_clr :in std_LOGIC;
+	IR_out:out std_LOGIC_VECTOR(15 downto 0);
+	sel_5e1 : in std_LOGIC_VECTOR(2 downto 0);
+	sel_5e2 : in std_LOGIC_VECTOR(2 downto 0);
+	mux2_in1 : in std_LOGIC_VECTOR(9 downto 0);
+	mem_adr : in std_LOGIC_VECTOR(7 downto 0);
+	sel_mux_pc : in std_LOGIC;
+	IR_ld : in std_LOGIC;
+	IR_clr : in std_LOGIC;
+	wren : in std_LOGIC;
+	comp_out : out std_logic_vector(2 downto 0)
 	);
 end GG210;
 architecture behavioral of GG210 is
@@ -36,14 +54,16 @@ architecture behavioral of GG210 is
 	COMPONENT COMP0 is
 	  port(                      
 		 a   : in std_logic_vector(7 downto 0);	 
-		 out_comp : out std_logic 
+		 out_comp : out std_logic
 		 
 	  );
 	end COMPONENT;
 	
 	comPONENT COMP is 
-		port (a,b: in std_logic_vector(7 downto 0);
-				aeqb,agtb,altb: out std_logic);
+		port (
+			a,b: in std_logic_vector(7 downto 0);
+			comp_out : out std_logic_vector(2 downto 0)
+		);
 	end COMPonENT;
 	
 	component REG16 is 
@@ -121,18 +141,6 @@ architecture behavioral of GG210 is
 		);
 	end component;
 
-	component DATA IS
-		PORT
-		(
-			aclr		: IN STD_LOGIC  := '0';
-			address		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-			clock		: IN STD_LOGIC  := '1';
-			data		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-			wren		: IN STD_LOGIC ;
-			q		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
-		);
-	END component;
-
 	COMPONENT PRGDATA IS
 		PORT
 		(
@@ -150,47 +158,24 @@ COMPONENT ADD1 is
 end COMPONENT;
 
 --Signals
---ADD1
+	--ADD1
 	signal add1_out : std_LOGIC_VECTOR(9 downto 0) := (others => '0');
---PC
-	signal pc_ld : std_LOGIC := '0';
-	
-	signal pc_clr : std_LOGIC := '0';
+	--PC
 	signal pc_in : std_LOGIC_VECTOR(9 downto 0) := (others => '0');
-	
 	signal pc_out : std_LOGIC_VECTOR(9 downto 0) := (others => '0');
---MUX2E
-	signal mux2_in1 : std_LOGIC_VECTOR(9 downto 0) := (others => '0');
-	signal sel_mux_pc : std_LOGIC := '1';
---MEMORIA DE PROG
+	--MEMORIA DE PROG
 	signal q: std_LOGIC_VECTOR(15 downto 0) := (others => '0');
---IR
-	signal IR_ld : std_LOGIC := '0';
-	signal IR_clr : std_LOGIC := '0';
-	signal IR_out: std_LOGIC_VECTOR(15 downto 0) := (others => '0');
---MEMORIA DE DADO
-	signal wren : std_LOGIC := '0';
-	signal din : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
+	--MEMORIA DE DADO
 	signal mem_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
-	signal mem_adr : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
---MUX4E
-	signal sel_mux4e : std_LOGIC_VECTOR(1 downto 0) := (others => '0');
+	--MUX4E
 	signal alu_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
-	--signal mux4e_in3 : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 	signal mux4e_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
---ERRES
+	--ERRES
 	signal R0_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 	signal R1_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 	signal R2_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 	signal R3_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
-	signal R1_ld : std_LOGIC := '0';
-	signal R2_ld : std_LOGIC := '0';
-	signal R3_ld : std_LOGIC := '0';
-	signal R1_clr : std_LOGIC := '0';
-	signal R2_clr : std_LOGIC := '0';
-	signal R3_clr : std_LOGIC := '0';
-	signal sel_5e1 : std_LOGIC_VECTOR(2 downto 0) := (others => '0');
-	signal sel_5e2 : std_LOGIC_VECTOR(2 downto 0) := (others => '0');
+	--mux5
 	signal mux5e1_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 	signal mux5e2_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 begin
@@ -203,11 +188,12 @@ begin
 	R3:REG8 PORT MAP (CLK,r3_ld,r3_clr,MUX4e_out,R3_OUT);
 	mux2 : mux2E port map(sel_mux_pc, mux2_in1, add1_out, pc_in);
 	IR: REG16 port map (clk,IR_ld, IR_clr,q,IR_out);
-	mem : memdata port map(mem_adr, clk, din, wren,mem_out);
+	mem : memdata port map(mem_adr, clk, mux5e2_out, wren,mem_out);
 	mux4 : mux4e port map(sel_mux4e, mem_adr, mem_out, mux5e2_out, alu_out, mux4e_out);
 	mux5E1: mux5E port map(SEL_5E1,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out,MUX5E1_OUT);
 	mux5E2: mux5E port map(SEL_5E2,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out,MUX5E2_OUT);
 	ula: alu port map(alu_sel,mux5e1_out,mux5e2_out,alu_out);
+	compa : comp port map(mux5E1_OUT, mux5e2_out, comp_out);
 	process(clk)
 	begin
 	end process;	

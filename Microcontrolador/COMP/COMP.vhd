@@ -3,12 +3,14 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 entity COMP is 
-	port (a,b: in std_logic_vector(7 downto 0);
-			aeqb,agtb,altb: out std_logic);
+	port (
+		a,b: in std_logic_vector(7 downto 0);
+		comp_out: out std_logic_vector(2 downto 0)
+	);
 end COMP;
 architecture behavior of COMP is
 begin	
-	aeqb <='1' when a=b else '0';
-	agtb <='1' when a>b else '0';
-	altb <='1' when a<b else '0';
+	comp_out(0) <='1' when a=b else '0';
+	comp_out(1) <='1' when a>b else '0';
+	comp_out(2) <='1' when a<b else '0';
 end behavior;

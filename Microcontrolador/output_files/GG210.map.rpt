@@ -1,5 +1,5 @@
 Analysis & Synthesis report for GG210
-Wed Nov 13 12:23:17 2019
+Wed Nov 13 14:01:34 2019
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -13,26 +13,19 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis IP Cores Summary
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Source assignments for PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated
- 12. Source assignments for MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated
- 13. Parameter Settings for User Entity Instance: PRGDATA:pmem|altsyncram:altsyncram_component
- 14. Parameter Settings for User Entity Instance: MEMDATA:mem|altsyncram:altsyncram_component
- 15. altsyncram Parameter Settings by Entity Instance
- 16. Port Connectivity Checks: "MUX5E:mux5E2"
- 17. Port Connectivity Checks: "MUX5E:mux5E1"
- 18. Port Connectivity Checks: "MUX4E:mux4"
- 19. Port Connectivity Checks: "MEMDATA:mem"
- 20. Port Connectivity Checks: "REG16:IR"
- 21. Port Connectivity Checks: "MUX2E:mux2"
- 22. Port Connectivity Checks: "REG8:R3"
- 23. Port Connectivity Checks: "REG8:R2"
- 24. Port Connectivity Checks: "REG8:R1"
- 25. Port Connectivity Checks: "PC:pcounter"
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. User-Specified and Inferred Latches
+ 11. Logic Cells Representing Combinational Loops
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated
+ 15. Source assignments for MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated
+ 16. Parameter Settings for User Entity Instance: PRGDATA:pmem|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: MEMDATA:mem|altsyncram:altsyncram_component
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -58,18 +51,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 13 12:23:17 2019      ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 13 14:01:34 2019      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; GG210                                      ;
 ; Top-level Entity Name              ; GG210                                      ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 0                                          ;
-;     Total combinational functions  ; 0                                          ;
-;     Dedicated logic registers      ; 0                                          ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 5                                          ;
+; Total logic elements               ; 196                                        ;
+;     Total combinational functions  ; 164                                        ;
+;     Dedicated logic registers      ; 50                                         ;
+; Total registers                    ; 50                                         ;
+; Total pins                         ; 62                                         ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
+; Total memory bits                  ; 18,432                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
 ; Total PLLs                         ; 0                                          ;
 +------------------------------------+--------------------------------------------+
@@ -179,6 +172,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; REG0/REG0.vhd                    ; yes             ; User VHDL File               ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/REG0/REG0.vhd          ;         ;
 ; ADD1/ADD1.vhd                    ; yes             ; User VHDL File               ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/ADD1/ADD1.vhd          ;         ;
 ; MEMDATA/MEMDATA.vhd              ; yes             ; User Wizard-Generated File   ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/MEMDATA/MEMDATA.vhd    ;         ;
+; COMP/COMP.vhd                    ; yes             ; User VHDL File               ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/COMP/COMP.vhd          ;         ;
 ; REG16/REG16.vhd                  ; yes             ; User VHDL File               ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/REG16/REG16.vhd        ;         ;
 ; REG8/REG8.vhd                    ; yes             ; User VHDL File               ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/REG8/REG8.vhd          ;         ;
 ; MUX5E/MUX5E.vhd                  ; yes             ; User VHDL File               ; C:/Users/Crowler/Documents/GitHub/sistemas-digitais/Microcontrolador/MUX5E/MUX5E.vhd        ;         ;
@@ -207,34 +201,66 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
+; Estimated Total logic elements              ; 196   ;
 ;                                             ;       ;
-; Total combinational functions               ; 0     ;
+; Total combinational functions               ; 164   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
+;     -- 4 input functions                    ; 85    ;
+;     -- 3 input functions                    ; 36    ;
+;     -- <=2 input functions                  ; 43    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
+;     -- normal mode                          ; 133   ;
+;     -- arithmetic mode                      ; 31    ;
 ;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
+; Total registers                             ; 50    ;
+;     -- Dedicated logic registers            ; 50    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 5     ;
+; I/O pins                                    ; 62    ;
+; Total memory bits                           ; 18432 ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 74    ;
+; Total fan-out                               ; 1036  ;
+; Average fan-out                             ; 3.45  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |GG210                     ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |GG210              ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
+; |GG210                                    ; 164 (0)           ; 50 (0)       ; 18432       ; 0            ; 0       ; 0         ; 62   ; 0            ; |GG210                                                                             ;              ;
+;    |ALU:ula|                              ; 61 (61)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|ALU:ula                                                                     ;              ;
+;    |COMP:compa|                           ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|COMP:compa                                                                  ;              ;
+;    |MEMDATA:mem|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|MEMDATA:mem                                                                 ;              ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|MEMDATA:mem|altsyncram:altsyncram_component                                 ;              ;
+;          |altsyncram_gra1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated  ;              ;
+;    |MUX4E:mux4|                           ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|MUX4E:mux4                                                                  ;              ;
+;    |MUX5E:mux5E1|                         ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|MUX5E:mux5E1                                                                ;              ;
+;    |MUX5E:mux5E2|                         ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|MUX5E:mux5E2                                                                ;              ;
+;    |PC:pcounter|                          ; 10 (10)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|PC:pcounter                                                                 ;              ;
+;    |PRGDATA:pmem|                         ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|PRGDATA:pmem                                                                ;              ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|PRGDATA:pmem|altsyncram:altsyncram_component                                ;              ;
+;          |altsyncram_g181:auto_generated| ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated ;              ;
+;    |REG16:IR|                             ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|REG16:IR                                                                    ;              ;
+;    |REG8:R1|                              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|REG8:R1                                                                     ;              ;
+;    |REG8:R2|                              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|REG8:R2                                                                     ;              ;
+;    |REG8:R3|                              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |GG210|REG8:R3                                                                     ;              ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                              ;
++----------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-------------+
+; Name                                                                                   ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF         ;
++----------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-------------+
+; MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|ALTSYNCRAM  ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048  ; None        ;
+; PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; 1024         ; 16           ; --           ; --           ; 16384 ; PRGDATA.mif ;
++----------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -247,14 +273,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+---------------------+------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                   ;
-+----------------------------------------+---------------------------------------------+
-; Register name                          ; Reason for Removal                          ;
-+----------------------------------------+---------------------------------------------+
-; PC:pcounter|addr_out[0..9]             ; Stuck at GND due to stuck port clock_enable ;
-; Total Number of Removed Registers = 10 ;                                             ;
-+----------------------------------------+---------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; ALU:ula|result[0]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[1]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[2]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[3]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[4]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[5]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[6]                                  ; ALU:ula|Mux8        ; yes                    ;
+; ALU:ula|result[7]                                  ; ALU:ula|Mux8        ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; MUX4E:mux4|Mux7~0                                      ;   ;
+; MUX4E:mux4|Mux6~0                                      ;   ;
+; MUX4E:mux4|Mux5~0                                      ;   ;
+; MUX4E:mux4|Mux4~0                                      ;   ;
+; MUX4E:mux4|Mux3~0                                      ;   ;
+; MUX4E:mux4|Mux2~0                                      ;   ;
+; MUX4E:mux4|Mux1~0                                      ;   ;
+; MUX4E:mux4|Mux0~0                                      ;   ;
+; Number of logic cells representing combinational loops ; 8 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -262,14 +314,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 50    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 50    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 50    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |GG210|MUX4E:mux4|Mux0     ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |GG210|MUX5E:mux5E1|Mux7   ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |GG210|MUX5E:mux5E2|Mux4   ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |GG210|ALU:ula|Mux7        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +----------------------------------------------------------------------------------------------------+
@@ -443,106 +507,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+----------------------------------------------+
 
 
-+------------------------------------------+
-; Port Connectivity Checks: "MUX5E:mux5E2" ;
-+------+-------+----------+----------------+
-; Port ; Type  ; Severity ; Details        ;
-+------+-------+----------+----------------+
-; sel  ; Input ; Info     ; Stuck at GND   ;
-+------+-------+----------+----------------+
-
-
-+------------------------------------------+
-; Port Connectivity Checks: "MUX5E:mux5E1" ;
-+------+-------+----------+----------------+
-; Port ; Type  ; Severity ; Details        ;
-+------+-------+----------+----------------+
-; sel  ; Input ; Info     ; Stuck at GND   ;
-+------+-------+----------+----------------+
-
-
-+----------------------------------------+
-; Port Connectivity Checks: "MUX4E:mux4" ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; sel  ; Input ; Info     ; Stuck at GND ;
-; a    ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
-
-
-+-------------------------------------------+
-; Port Connectivity Checks: "MEMDATA:mem"   ;
-+---------+-------+----------+--------------+
-; Port    ; Type  ; Severity ; Details      ;
-+---------+-------+----------+--------------+
-; address ; Input ; Info     ; Stuck at GND ;
-; data    ; Input ; Info     ; Stuck at GND ;
-; wren    ; Input ; Info     ; Stuck at GND ;
-+---------+-------+----------+--------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "REG16:IR"                                                                               ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; load     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; clr      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------+
-; Port Connectivity Checks: "MUX2E:mux2" ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; sel  ; Input ; Info     ; Stuck at VCC ;
-; a    ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
-
-
-+----------------------------------------+
-; Port Connectivity Checks: "REG8:R3"    ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; load ; Input ; Info     ; Stuck at GND ;
-; clr  ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
-
-
-+----------------------------------------+
-; Port Connectivity Checks: "REG8:R2"    ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; load ; Input ; Info     ; Stuck at GND ;
-; clr  ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
-
-
-+----------------------------------------+
-; Port Connectivity Checks: "REG8:R1"    ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; load ; Input ; Info     ; Stuck at GND ;
-; clr  ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
-
-
-+------------------------------------------+
-; Port Connectivity Checks: "PC:pcounter"  ;
-+--------+-------+----------+--------------+
-; Port   ; Type  ; Severity ; Details      ;
-+--------+-------+----------+--------------+
-; pc_ld  ; Input ; Info     ; Stuck at GND ;
-; pc_clr ; Input ; Info     ; Stuck at GND ;
-+--------+-------+----------+--------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -558,7 +522,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Nov 13 12:23:14 2019
+    Info: Processing started: Wed Nov 13 14:01:31 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off GG210 -c GG210
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file reg0/reg0.vhd
@@ -604,25 +568,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file prgdata
     Info (12022): Found design unit 1: prgdata-SYN
     Info (12023): Found entity 1: PRGDATA
 Info (12127): Elaborating entity "GG210" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(156): used explicit default value for signal "pc_ld" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(158): used explicit default value for signal "pc_clr" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(163): used explicit default value for signal "mux2_in1" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(164): used explicit default value for signal "sel_mux_pc" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(168): used explicit default value for signal "IR_ld" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(169): used explicit default value for signal "IR_clr" because signal was never assigned a value
-Warning (10036): Verilog HDL or VHDL warning at GG210.vhd(170): object "IR_out" assigned a value but never read
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(172): used explicit default value for signal "wren" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(173): used explicit default value for signal "din" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(175): used explicit default value for signal "mem_adr" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(177): used explicit default value for signal "sel_mux4e" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(186): used explicit default value for signal "R1_ld" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(187): used explicit default value for signal "R2_ld" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(188): used explicit default value for signal "R3_ld" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(189): used explicit default value for signal "R1_clr" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(190): used explicit default value for signal "R2_clr" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(191): used explicit default value for signal "R3_clr" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(192): used explicit default value for signal "sel_5e1" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at GG210.vhd(193): used explicit default value for signal "sel_5e2" because signal was never assigned a value
 Info (12128): Elaborating entity "PC" for hierarchy "PC:pcounter"
 Warning (10492): VHDL Process Statement warning at PC.vhd(22): signal "pc_ld" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "PRGDATA" for hierarchy "PRGDATA:pmem"
@@ -689,46 +634,33 @@ Info (10041): Inferred latch for "result[4]" at ALU.vhd(20)
 Info (10041): Inferred latch for "result[5]" at ALU.vhd(20)
 Info (10041): Inferred latch for "result[6]" at ALU.vhd(20)
 Info (10041): Inferred latch for "result[7]" at ALU.vhd(20)
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[8]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[9]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[10]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[11]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[12]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[13]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[14]"
-        Warning (14320): Synthesized away node "PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[15]"
+Info (12128): Elaborating entity "COMP" for hierarchy "COMP:compa"
+Warning (13012): Latch ALU:ula|result[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
+Warning (13012): Latch ALU:ula|result[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_sel[1]
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-    Warning (15610): No output dependent on input pin "alu_sel[0]"
-    Warning (15610): No output dependent on input pin "alu_sel[1]"
-    Warning (15610): No output dependent on input pin "alu_sel[2]"
-    Warning (15610): No output dependent on input pin "alu_sel[3]"
-Info (21057): Implemented 5 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 0 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 61 warnings
-    Info: Peak virtual memory: 4654 megabytes
-    Info: Processing ended: Wed Nov 13 12:23:17 2019
+Info (21057): Implemented 290 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 43 input pins
+    Info (21059): Implemented 19 output pins
+    Info (21061): Implemented 204 logic cells
+    Info (21064): Implemented 24 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4658 megabytes
+    Info: Processing ended: Wed Nov 13 14:01:34 2019
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
