@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Crowler\Documents\GitHub\sistemas-digitais\Microcontrolador\MEMDATA\simulation\qsim
+vMEMDATA
+Z1 !s100 j3OfI?odOcTF4F1Zm4;g>3
+Z2 I<1CB:]>;d@57kEd<NoLNG1
+Z3 V1bkAG5[kbcc_Y@5S=0_gP1
+Z4 dC:\Users\Crowler\Documents\GitHub\sistemas-digitais\Microcontrolador\MEMDATA\simulation\qsim
+Z5 w1573966455
+Z6 8MEMDATA.vo
+Z7 FMEMDATA.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|MEMDATA.vo|
+Z10 o-work work -O0
+Z11 n@m@e@m@d@a@t@a
+!i10b 1
+!s85 0
+Z12 !s108 1573966458.445000
+Z13 !s107 MEMDATA.vo|
+!s101 -O0
+vMEMDATA_vlg_check_tst
+!i10b 1
+Z14 !s100 P5@GCSh2d;<J2OAdbY;9F3
+Z15 I2fm6UP2b<^mQ7fh@RAahL3
+Z16 Vi@8BJBEKBT9b94b[H1g:V2
+R4
+Z17 w1573966454
+Z18 8MEMDATA.vt
+Z19 FMEMDATA.vt
+L0 63
+R8
+r1
+!s85 0
+31
+Z20 !s108 1573966458.793000
+Z21 !s107 MEMDATA.vt|
+Z22 !s90 -work|work|MEMDATA.vt|
+!s101 -O0
+R10
+Z23 n@m@e@m@d@a@t@a_vlg_check_tst
+vMEMDATA_vlg_sample_tst
+!i10b 1
+Z24 !s100 n@dJD3_F=^zg_6ji4HoPj0
+Z25 IGd]BiR[>KHO^jjBXjmz1e0
+Z26 VnE[>L]SJ0j:cik581XC_<3
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@m@e@m@d@a@t@a_vlg_sample_tst
+vMEMDATA_vlg_vec_tst
+!i10b 1
+!s100 inH3NnPf7<[S>ZdVodMd33
+I6Odi4XBFeEATDDoojQ:;b3
+Z28 V<NTR5GFV<OiLjLXalz3IN0
+R4
+R17
+R18
+R19
+Z29 L0 283
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z30 n@m@e@m@d@a@t@a_vlg_vec_tst

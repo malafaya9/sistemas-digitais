@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="CTL2000">
+		<CBX_INST_ENTRY INSTANCE_NAME="|CTL2000|GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_gra1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|CTL2000|GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_g181.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
