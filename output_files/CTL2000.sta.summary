@@ -3,27 +3,163 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'clk'
-Slack : -2.164
-TNS   : -28.905
+Slack : -7.116
+TNS   : -272.394
+
+Type  : Slow Model Setup 'CU:control|state.exe_addi'
+Slack : -2.428
+TNS   : -7.929
+
+Type  : Slow Model Setup 'CU:control|state.decode'
+Slack : -2.291
+TNS   : -2.762
+
+Type  : Slow Model Setup 'CU:control|state.exe_ld'
+Slack : -1.941
+TNS   : -16.832
+
+Type  : Slow Model Setup 'CU:control|state.exe_cmp'
+Slack : -1.124
+TNS   : -5.389
+
+Type  : Slow Model Setup 'CU:control|mem_adr[0]'
+Slack : 2.774
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CU:control|mem_adr[0]'
+Slack : -6.017
+TNS   : -60.843
+
+Type  : Slow Model Hold 'CU:control|state.exe_ld'
+Slack : -2.738
+TNS   : -4.047
 
 Type  : Slow Model Hold 'clk'
-Slack : 0.645
+Slack : -2.549
+TNS   : -22.012
+
+Type  : Slow Model Hold 'CU:control|state.exe_addi'
+Slack : -2.447
+TNS   : -7.422
+
+Type  : Slow Model Hold 'CU:control|state.exe_cmp'
+Slack : -2.134
+TNS   : -2.134
+
+Type  : Slow Model Hold 'CU:control|state.decode'
+Slack : 0.123
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'clk'
+Slack : -0.463
+TNS   : -3.525
+
+Type  : Slow Model Removal 'clk'
+Slack : 0.703
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk'
 Slack : -2.000
-TNS   : -89.380
+TNS   : -268.220
+
+Type  : Slow Model Minimum Pulse Width 'CU:control|mem_adr[0]'
+Slack : -0.334
+TNS   : -18.774
+
+Type  : Slow Model Minimum Pulse Width 'CU:control|state.decode'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CU:control|state.exe_addi'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CU:control|state.exe_cmp'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CU:control|state.exe_ld'
+Slack : 0.500
+TNS   : 0.000
 
 Type  : Fast Model Setup 'clk'
-Slack : -1.460
-TNS   : -17.073
+Slack : -2.632
+TNS   : -103.550
+
+Type  : Fast Model Setup 'CU:control|state.exe_addi'
+Slack : -1.058
+TNS   : -3.471
+
+Type  : Fast Model Setup 'CU:control|state.exe_ld'
+Slack : -1.004
+TNS   : -8.607
+
+Type  : Fast Model Setup 'CU:control|state.decode'
+Slack : -0.995
+TNS   : -0.995
+
+Type  : Fast Model Setup 'CU:control|state.exe_cmp'
+Slack : -0.191
+TNS   : -0.551
+
+Type  : Fast Model Setup 'CU:control|mem_adr[0]'
+Slack : 1.200
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CU:control|mem_adr[0]'
+Slack : -2.580
+TNS   : -24.378
 
 Type  : Fast Model Hold 'clk'
-Slack : 0.295
+Slack : -1.591
+TNS   : -17.729
+
+Type  : Fast Model Hold 'CU:control|state.exe_ld'
+Slack : -1.266
+TNS   : -1.845
+
+Type  : Fast Model Hold 'CU:control|state.exe_addi'
+Slack : -1.077
+TNS   : -3.229
+
+Type  : Fast Model Hold 'CU:control|state.exe_cmp'
+Slack : -0.950
+TNS   : -0.950
+
+Type  : Fast Model Hold 'CU:control|state.decode'
+Slack : 0.297
 TNS   : 0.000
+
+Type  : Fast Model Recovery 'clk'
+Slack : 0.487
+TNS   : 0.000
+
+Type  : Fast Model Removal 'clk'
+Slack : -0.086
+TNS   : -0.860
 
 Type  : Fast Model Minimum Pulse Width 'clk'
 Slack : -2.000
-TNS   : -89.380
+TNS   : -268.220
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|mem_adr[0]'
+Slack : 0.153
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|state.decode'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|state.exe_addi'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|state.exe_cmp'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|state.exe_ld'
+Slack : 0.500
+TNS   : 0.000
 
 ------------------------------------------------------------

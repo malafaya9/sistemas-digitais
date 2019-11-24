@@ -5,20 +5,17 @@ use ieee.numeric_std.all;
 entity CU is 
 	port 
 	(
+	teste2 : out std_LOGIC_VECTOR(15 downto 0);
 	clk : in std_logic;
 	rst :in std_logic;
 	alu_sel: out std_logic_vector(3 downto 0);
 	sel_mux5 : out	std_LOGIC_VECTOR(2 downto 0);
 	pc_ld : out std_LOGIC;
-	pc_clr : out std_LOGIC;
 	R1_ld :out std_LOGIC ;
 	R2_ld :out std_LOGIC ;
 	R3_ld :out std_LOGIC ;
 	Rin_ld :out std_LOGIC;
 	Rout_ld :out std_LOGIC;
-	R1_clr :out std_LOGIC ;
-	R2_clr :out std_LOGIC;
-	R3_clr :out std_LOGIC;
 	IR_out:in std_LOGIC_VECTOR(15 downto 0);
 	sel_5e1 : out std_LOGIC_VECTOR(2 downto 0);
 	sel_5e2 : out std_LOGIC_VECTOR(2 downto 0);
@@ -26,7 +23,6 @@ entity CU is
 	mem_adr : out std_LOGIC_VECTOR(7 downto 0);
 	sel_mux_pc : out std_LOGIC;
 	IR_ld : out std_LOGIC;
-	IR_clr : out std_LOGIC;
 	wren : out std_LOGIC;
 	comp_out : in std_logic_vector(2 downto 0)
 
@@ -38,27 +34,39 @@ reset, fetch, decode, exe_ld, exe_st, exe_mov, exe_pinin, exe_pinout,
 exe_addi, exe_subi, exe_iand, exe_ior, exe_inot, exe_ixor,
 exe_movi, exe_goto, exe_cjmp, exe_cmp, exe_jmpl, exe_jmph
 );
-SIGNAL state: STATE_TYPE;
+SIGNAL pstate: STATE_TYPE;
+SIGNAL state: STATE_TYPE := fetch;
 begin
--- Quartus II VHDL Template
--- Four-State Moore State Machine
 
--- A Moore machine's outputs are dependent only on the current state.
--- The output is written only when the state changes.  (State
--- transitions are synchronous.)
-
+	teste2(15 downto 0) <=ir_out(15 downto 0);
 	process (clk, rst)
 	begin
 		if rst = '1' then
-			state <= reset;
+			pstate <= reset;
 		elsif (rising_edge(clk)) then
-			case state is
-				when reset=>
-					state <= fetch;
-				when fetch=>
-					state<=decode;
-				when decode=>
-					if ir_out(15 downto 11) = "00000" then
+			pstate <= state;
+		end if;
+	end process;
+
+	-- Output depends solely on the current state
+	process (pstate)
+	begin
+		case pstate is
+			when reset =>
+				state <= fetch;
+				r1_ld<='0';
+				r2_ld<='0';
+				r3_ld<='0';
+				ir_ld<='0';
+				pc_ld<='0';
+			when fetch =>
+				state<=decode;
+				R1_ld<='0';
+				R2_ld<='0';
+				R3_ld<='0';
+				sel_mux_pc <= '1';
+			when decode =>
+				if ir_out(15 downto 11) = "00000" then
 						state <= exe_ld;
 					elsif ir_out(15 downto 11) = "00001" then
 						state <= exe_st;
@@ -92,27 +100,13 @@ begin
 						state <= exe_jmpl;
 					elsif ir_out(15 downto 11) = "01111" then 
 						state <= exe_cmp;
-					end if;
-					
-				when others =>
+					else
 						state <= fetch;
-					
-			end case;
-		end if;
-	end process;
-
-	-- Output depends solely on the current state
-	process (state)
-	begin
-		case state is
-			when reset =>
-				pc_clr <= '1';
-				ir_clr <= '1';
-			when fetch =>
-				sel_mux_pc <= '1';
-				pc_ld <= '1';
-				ir_ld <= '1';
+					end if;
+				ir_ld <= '0';
+				pc_ld <= '0';
 			when exe_ld =>
+				state <= fetch;
 				mem_adr <= ir_out(8 downto 1 );
 				wren<='0';
 				sel_mux5 <= "001";
@@ -125,6 +119,7 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_st =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_5e2 <= "001";
@@ -136,6 +131,7 @@ begin
 				mem_adr <= ir_out(8 downto 1 );
 				wren <= '1';
 			when exe_mov =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_5e2 <= "001";
@@ -150,6 +146,7 @@ begin
 					end if;
 				end if;
 			when exe_addi =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_mux5 <= "000";
@@ -174,6 +171,7 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_subi =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_mux5 <= "000";
@@ -198,6 +196,7 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_iand =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_mux5 <= "000";
@@ -222,6 +221,7 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_ior =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_mux5 <= "000";
@@ -246,6 +246,7 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_inot =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_mux5 <= "000";
@@ -270,6 +271,7 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_ixor =>
+				state <= fetch;
 				if ir_out(10 downto 9) = "00" then 
 				elsif ir_out(10 downto 9) = "01" then
 					sel_mux5 <= "000";
@@ -294,29 +296,46 @@ begin
 					R3_ld<='1';
 				end if;
 			when exe_goto =>
+				state <= fetch;
 				mux2_in1<=ir_out(10 downto 1);
 				sel_mux_pc<='0';
-				pc_ld <= '1';
+				--pc_ld <= '1';
 			when exe_cjmp =>
+				state <= fetch;
 				if comp_out = "100" then 
 					mux2_in1<=ir_out(10 downto 1);
 					sel_mux_pc<='0';
-					pc_ld <= '1';
+					--pc_ld <= '1';
 				end if;
 			when exe_jmph => 
+				state <= fetch;
 				if comp_out = "010" then 
 					mux2_in1<=ir_out(10 downto 1);
 					sel_mux_pc<='0';
-					pc_ld <= '1';
+					--pc_ld <= '1';
 				end if;
 			when exe_jmpl =>
+				state <= fetch;
 				if comp_out = "001" then 
 					mux2_in1<=ir_out(10 downto 1);
 					sel_mux_pc<='0';
-					pc_ld <= '1';
+					--pc_ld <= '1';
 				end if;
-			when others =>
-					--state <= fetch;
+			when exe_pinin =>
+				state <= fetch;
+			when exe_pinout =>
+				state <= fetch;
+			when exe_cmp =>
+				state <= fetch;
+			when exe_movi =>
+				state <= fetch;
 		end case;
+		if state = fetch then
+			pc_ld <= '1';
+			ir_ld <= '1';
+		else
+			pc_ld <= '0';
+			ir_ld <= '0';
+		end if;
 	end process;
 end behavioral;

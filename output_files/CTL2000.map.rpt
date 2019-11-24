@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CTL2000
-Mon Nov 18 15:01:21 2019
+Sun Nov 24 13:49:56 2019
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -15,17 +15,19 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |CTL2000|CU:control|state
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Source assignments for GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated
- 15. Source assignments for GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated
- 16. Parameter Settings for User Entity Instance: GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component
- 17. Parameter Settings for User Entity Instance: GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component
- 18. altsyncram Parameter Settings by Entity Instance
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+ 10. State Machine - |CTL2000|CU:control|pstate
+ 11. User-Specified and Inferred Latches
+ 12. Logic Cells Representing Combinational Loops
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated
+ 17. Source assignments for GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated
+ 18. Parameter Settings for User Entity Instance: GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -51,18 +53,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 18 15:01:21 2019      ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 24 13:49:56 2019      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; CTL2000                                    ;
 ; Top-level Entity Name              ; CTL2000                                    ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 8                                          ;
-;     Total combinational functions  ; 1                                          ;
-;     Dedicated logic registers      ; 7                                          ;
-; Total registers                    ; 7                                          ;
-; Total pins                         ; 26                                         ;
+; Total logic elements               ; 208                                        ;
+;     Total combinational functions  ; 174                                        ;
+;     Dedicated logic registers      ; 70                                         ;
+; Total registers                    ; 70                                         ;
+; Total pins                         ; 42                                         ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 14                                         ;
+; Total memory bits                  ; 18,432                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
 ; Total PLLs                         ; 0                                          ;
 +------------------------------------+--------------------------------------------+
@@ -202,54 +204,67 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 8     ;
+; Estimated Total logic elements              ; 208   ;
 ;                                             ;       ;
-; Total combinational functions               ; 1     ;
+; Total combinational functions               ; 174   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 1     ;
+;     -- 4 input functions                    ; 85    ;
+;     -- 3 input functions                    ; 70    ;
+;     -- <=2 input functions                  ; 19    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1     ;
-;     -- arithmetic mode                      ; 0     ;
+;     -- normal mode                          ; 151   ;
+;     -- arithmetic mode                      ; 23    ;
 ;                                             ;       ;
-; Total registers                             ; 7     ;
-;     -- Dedicated logic registers            ; 7     ;
+; Total registers                             ; 70    ;
+;     -- Dedicated logic registers            ; 70    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 26    ;
-; Total memory bits                           ; 14    ;
+; I/O pins                                    ; 42    ;
+; Total memory bits                           ; 18432 ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 14    ;
-; Total fan-out                               ; 42    ;
-; Average fan-out                             ; 1.02  ;
+; Maximum fan-out                             ; 94    ;
+; Total fan-out                               ; 1154  ;
+; Average fan-out                             ; 3.72  ;
 +---------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                          ;
-+----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                ; Library Name ;
-+----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
-; |CTL2000                                     ; 1 (1)             ; 7 (0)        ; 14          ; 0            ; 0       ; 0         ; 26   ; 0            ; |CTL2000                                                                                           ;              ;
-;    |GG210:datapath|                          ; 0 (0)             ; 7 (0)        ; 14          ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath                                                                            ;              ;
-;       |MEMDATA:mem|                          ; 0 (0)             ; 0 (0)        ; 14          ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MEMDATA:mem                                                                ;              ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 14          ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component                                ;              ;
-;             |altsyncram_gra1:auto_generated| ; 0 (0)             ; 0 (0)        ; 14          ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated ;              ;
-;       |REG8:R3|                              ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|REG8:R3                                                                    ;              ;
-+----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                           ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+; |CTL2000                                     ; 174 (0)           ; 70 (0)       ; 18432       ; 0            ; 0       ; 0         ; 42   ; 0            ; |CTL2000                                                                                            ;              ;
+;    |CU:control|                              ; 86 (86)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|CU:control                                                                                 ;              ;
+;    |GG210:datapath|                          ; 88 (0)            ; 50 (0)       ; 18432       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath                                                                             ;              ;
+;       |COMP:compa|                           ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|COMP:compa                                                                  ;              ;
+;       |MEMDATA:mem|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MEMDATA:mem                                                                 ;              ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component                                 ;              ;
+;             |altsyncram_gra1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated  ;              ;
+;       |MUX5E:mux5E1|                         ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MUX5E:mux5E1                                                                ;              ;
+;       |MUX5E:mux5E2|                         ; 25 (25)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MUX5E:mux5E2                                                                ;              ;
+;       |MUX5E:mux5|                           ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|MUX5E:mux5                                                                  ;              ;
+;       |PC:pcounter|                          ; 10 (10)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|PC:pcounter                                                                 ;              ;
+;       |PRGDATA:pmem|                         ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|PRGDATA:pmem                                                                ;              ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component                                ;              ;
+;             |altsyncram_g181:auto_generated| ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated ;              ;
+;       |REG16:IR|                             ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|REG16:IR                                                                    ;              ;
+;       |REG8:R1|                              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|REG8:R1                                                                     ;              ;
+;       |REG8:R2|                              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|REG8:R2                                                                     ;              ;
+;       |REG8:R3|                              ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CTL2000|GG210:datapath|REG8:R3                                                                     ;              ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                    ;
-+------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                                 ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
-; GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; None ;
-+------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                             ;
++-------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-------------+
+; Name                                                                                                  ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF         ;
++-------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-------------+
+; GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|ALTSYNCRAM  ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048  ; None        ;
+; GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; 1024         ; 16           ; --           ; --           ; 16384 ; PRGDATA.mif ;
++-------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+-------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -263,96 +278,101 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |CTL2000|CU:control|state                                                                                                                                                                                                                                                                                                                ;
-+------------------+----------------+----------------+---------------+----------------+----------------+----------------+----------------+----------------+---------------+----------------+----------------+----------------+------------------+-----------------+---------------+--------------+--------------+--------------+-------------+-------------+
-; Name             ; state.exe_jmph ; state.exe_jmpl ; state.exe_cmp ; state.exe_cjmp ; state.exe_goto ; state.exe_movi ; state.exe_ixor ; state.exe_inot ; state.exe_ior ; state.exe_iand ; state.exe_subi ; state.exe_addi ; state.exe_pinout ; state.exe_pinin ; state.exe_mov ; state.exe_st ; state.exe_ld ; state.decode ; state.fetch ; state.reset ;
-+------------------+----------------+----------------+---------------+----------------+----------------+----------------+----------------+----------------+---------------+----------------+----------------+----------------+------------------+-----------------+---------------+--------------+--------------+--------------+-------------+-------------+
-; state.reset      ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 0           ;
-; state.fetch      ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 1           ; 1           ;
-; state.decode     ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 1            ; 0           ; 1           ;
-; state.exe_ld     ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 1            ; 0            ; 0           ; 1           ;
-; state.exe_st     ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 1            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_mov    ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 1             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_pinin  ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 1               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_pinout ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 1                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_addi   ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 1              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_subi   ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 1              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_iand   ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 1              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_ior    ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 1             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_inot   ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 1              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_ixor   ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 1              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_movi   ; 0              ; 0              ; 0             ; 0              ; 0              ; 1              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_goto   ; 0              ; 0              ; 0             ; 0              ; 1              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_cjmp   ; 0              ; 0              ; 0             ; 1              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_cmp    ; 0              ; 0              ; 1             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_jmpl   ; 0              ; 1              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-; state.exe_jmph   ; 1              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0              ; 0              ; 0              ; 0                ; 0               ; 0             ; 0            ; 0            ; 0            ; 0           ; 1           ;
-+------------------+----------------+----------------+---------------+----------------+----------------+----------------+----------------+----------------+---------------+----------------+----------------+----------------+------------------+-----------------+---------------+--------------+--------------+--------------+-------------+-------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |CTL2000|CU:control|pstate                                                                                                                                                                                                                                                                                                                                    ;
++-------------------+-----------------+-----------------+----------------+-----------------+-----------------+-----------------+-----------------+-----------------+----------------+-----------------+-----------------+-----------------+-------------------+------------------+----------------+---------------+---------------+---------------+--------------+--------------+
+; Name              ; pstate.exe_jmph ; pstate.exe_jmpl ; pstate.exe_cmp ; pstate.exe_cjmp ; pstate.exe_goto ; pstate.exe_movi ; pstate.exe_ixor ; pstate.exe_inot ; pstate.exe_ior ; pstate.exe_iand ; pstate.exe_subi ; pstate.exe_addi ; pstate.exe_pinout ; pstate.exe_pinin ; pstate.exe_mov ; pstate.exe_st ; pstate.exe_ld ; pstate.decode ; pstate.fetch ; pstate.reset ;
++-------------------+-----------------+-----------------+----------------+-----------------+-----------------+-----------------+-----------------+-----------------+----------------+-----------------+-----------------+-----------------+-------------------+------------------+----------------+---------------+---------------+---------------+--------------+--------------+
+; pstate.reset      ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 0            ;
+; pstate.fetch      ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 1            ; 1            ;
+; pstate.decode     ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 1             ; 0            ; 1            ;
+; pstate.exe_ld     ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 1             ; 0             ; 0            ; 1            ;
+; pstate.exe_st     ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 1             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_mov    ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 1              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_pinin  ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 1                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_pinout ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 1                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_addi   ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 1               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_subi   ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 1               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_iand   ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 1               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_ior    ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 1              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_inot   ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 1               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_ixor   ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 1               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_movi   ; 0               ; 0               ; 0              ; 0               ; 0               ; 1               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_goto   ; 0               ; 0               ; 0              ; 0               ; 1               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_cjmp   ; 0               ; 0               ; 0              ; 1               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_cmp    ; 0               ; 0               ; 1              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_jmpl   ; 0               ; 1               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
+; pstate.exe_jmph   ; 1               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0               ; 0               ; 0               ; 0                 ; 0                ; 0              ; 0             ; 0             ; 0             ; 0            ; 1            ;
++-------------------+-----------------+-----------------+----------------+-----------------+-----------------+-----------------+-----------------+-----------------+----------------+-----------------+-----------------+-----------------+-------------------+------------------+----------------+---------------+---------------+---------------+--------------+--------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                         ;
-+-------------------------------------------+------------------------------------------------+
-; Register name                             ; Reason for Removal                             ;
-+-------------------------------------------+------------------------------------------------+
-; GG210:datapath|REG16:IR|data_out[1..15]   ; Stuck at GND due to stuck port clear           ;
-; GG210:datapath|PC:pcounter|addr_out[0..9] ; Stuck at GND due to stuck port clear           ;
-; GG210:datapath|REG8:RIN|data_out[0..7]    ; Lost fanout                                    ;
-; GG210:datapath|REG8:R2|data_out[0..7]     ; Lost fanout                                    ;
-; GG210:datapath|REG8:ROUT|data_out[0..7]   ; Stuck at GND due to stuck port clock_enable    ;
-; GG210:datapath|REG8:R1|data_out[0]        ; Merged with GG210:datapath|REG8:R3|data_out[0] ;
-; GG210:datapath|REG8:R1|data_out[1]        ; Merged with GG210:datapath|REG8:R3|data_out[1] ;
-; GG210:datapath|REG8:R1|data_out[2]        ; Merged with GG210:datapath|REG8:R3|data_out[2] ;
-; GG210:datapath|REG8:R1|data_out[3]        ; Merged with GG210:datapath|REG8:R3|data_out[3] ;
-; GG210:datapath|REG8:R1|data_out[4]        ; Merged with GG210:datapath|REG8:R3|data_out[4] ;
-; GG210:datapath|REG8:R1|data_out[5]        ; Merged with GG210:datapath|REG8:R3|data_out[5] ;
-; GG210:datapath|REG8:R1|data_out[6]        ; Merged with GG210:datapath|REG8:R3|data_out[6] ;
-; GG210:datapath|REG8:R1|data_out[7]        ; Merged with GG210:datapath|REG8:R3|data_out[7] ;
-; GG210:datapath|REG8:R3|data_out[7]        ; Lost fanout                                    ;
-; CU:control|state.exe_addi                 ; Lost fanout                                    ;
-; CU:control|state.exe_subi                 ; Lost fanout                                    ;
-; CU:control|state.exe_iand                 ; Lost fanout                                    ;
-; CU:control|state.exe_ior                  ; Lost fanout                                    ;
-; CU:control|state.exe_inot                 ; Lost fanout                                    ;
-; CU:control|state.exe_ixor                 ; Lost fanout                                    ;
-; CU:control|state.exe_goto                 ; Lost fanout                                    ;
-; CU:control|state.exe_cjmp                 ; Lost fanout                                    ;
-; CU:control|state.exe_jmpl                 ; Lost fanout                                    ;
-; CU:control|state.exe_jmph                 ; Lost fanout                                    ;
-; CU:control|state.exe_ld                   ; Lost fanout                                    ;
-; CU:control|state.exe_st                   ; Lost fanout                                    ;
-; CU:control|state.exe_mov                  ; Lost fanout                                    ;
-; CU:control|state.exe_pinin                ; Lost fanout                                    ;
-; CU:control|state.exe_pinout               ; Lost fanout                                    ;
-; CU:control|state.exe_movi                 ; Lost fanout                                    ;
-; CU:control|state.exe_cmp                  ; Lost fanout                                    ;
-; CU:control|state.reset                    ; Lost fanout                                    ;
-; CU:control|state.fetch                    ; Lost fanout                                    ;
-; CU:control|state.decode                   ; Lost fanout                                    ;
-; Total Number of Removed Registers = 78    ;                                                ;
-+-------------------------------------------+------------------------------------------------+
++------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                  ;
++-----------------------------------------------------+-----------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal   ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------+------------------------+
+; CU:control|mux2_in1[0]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|sel_mux_pc                               ; CU:control|Selector32 ; yes                    ;
+; CU:control|mux2_in1[1]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[2]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[3]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[4]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[5]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[6]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[7]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[8]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|mux2_in1[9]                              ; CU:control|Selector15 ; yes                    ;
+; CU:control|sel_5e2[1]                               ; CU:control|Selector29 ; yes                    ;
+; CU:control|sel_5e2[2]                               ; CU:control|Selector29 ; yes                    ;
+; CU:control|sel_5e2[0]                               ; CU:control|Selector29 ; yes                    ;
+; CU:control|sel_5e1[0]                               ; CU:control|Selector28 ; yes                    ;
+; CU:control|sel_5e1[1]                               ; CU:control|Selector28 ; yes                    ;
+; CU:control|R3_ld                                    ; CU:control|Selector33 ; yes                    ;
+; CU:control|R2_ld                                    ; CU:control|Selector34 ; yes                    ;
+; CU:control|mem_adr[0]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|sel_mux5[0]                              ; CU:control|Selector30 ; yes                    ;
+; CU:control|sel_mux5[1]                              ; CU:control|Selector30 ; yes                    ;
+; CU:control|R1_ld                                    ; CU:control|Selector35 ; yes                    ;
+; CU:control|mem_adr[1]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|mem_adr[2]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|mem_adr[3]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|mem_adr[4]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|mem_adr[5]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|mem_adr[6]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|mem_adr[7]                               ; CU:control|mem_adr    ; yes                    ;
+; CU:control|wren                                     ; CU:control|mem_adr    ; yes                    ;
+; Number of user-specified and inferred latches = 30  ;                       ;                        ;
++-----------------------------------------------------+-----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                     ;
-+-------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-; Register name                       ; Reason for Removal      ; Registers Removed due to This Register                                          ;
-+-------------------------------------+-------------------------+---------------------------------------------------------------------------------+
-; GG210:datapath|REG16:IR|data_out[1] ; Stuck at GND            ; GG210:datapath|PC:pcounter|addr_out[8], GG210:datapath|PC:pcounter|addr_out[9], ;
-;                                     ; due to stuck port clear ; GG210:datapath|REG8:RIN|data_out[0], GG210:datapath|REG8:RIN|data_out[1],       ;
-;                                     ;                         ; GG210:datapath|REG8:RIN|data_out[2], GG210:datapath|REG8:RIN|data_out[3],       ;
-;                                     ;                         ; GG210:datapath|REG8:RIN|data_out[4], GG210:datapath|REG8:RIN|data_out[5],       ;
-;                                     ;                         ; GG210:datapath|REG8:RIN|data_out[6], GG210:datapath|REG8:RIN|data_out[7],       ;
-;                                     ;                         ; GG210:datapath|REG8:R2|data_out[6], GG210:datapath|REG8:R2|data_out[7],         ;
-;                                     ;                         ; GG210:datapath|REG8:R3|data_out[7]                                              ;
-; GG210:datapath|REG16:IR|data_out[9] ; Stuck at GND            ; GG210:datapath|REG8:R2|data_out[0], GG210:datapath|REG8:R2|data_out[1],         ;
-;                                     ; due to stuck port clear ; GG210:datapath|REG8:R2|data_out[2], GG210:datapath|REG8:R2|data_out[3],         ;
-;                                     ;                         ; GG210:datapath|REG8:ROUT|data_out[0], GG210:datapath|REG8:ROUT|data_out[1],     ;
-;                                     ;                         ; GG210:datapath|REG8:ROUT|data_out[2], GG210:datapath|REG8:ROUT|data_out[3],     ;
-;                                     ;                         ; GG210:datapath|REG8:ROUT|data_out[7]                                            ;
-; CU:control|state.exe_ld             ; Lost Fanouts            ; CU:control|state.decode                                                         ;
-+-------------------------------------+-------------------------+---------------------------------------------------------------------------------+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; GG210:datapath|MUX5E:mux5|Mux7~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux6~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux5~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux4~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux3~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux2~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux1~0                       ;   ;
+; GG210:datapath|MUX5E:mux5|Mux0~0                       ;   ;
+; Number of logic cells representing combinational loops ; 8 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; GG210:datapath|REG8:ROUT|data_out[0..7] ; Stuck at GND due to stuck port clock_enable ;
+; GG210:datapath|REG8:RIN|data_out[0..7]  ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 16  ;                                             ;
++-----------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -360,14 +380,26 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 7     ;
+; Total registers                              ; 70    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 70    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 50    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CTL2000|GG210:datapath|MUX5E:mux5E1|Mux6 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CTL2000|GG210:datapath|MUX5E:mux5|Mux0   ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; No         ; |CTL2000|GG210:datapath|MUX5E:mux5E2|Mux0 ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |CTL2000|CU:control|Selector35            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -546,7 +578,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -556,7 +588,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Mon Nov 18 15:01:18 2019
+    Info: Processing started: Sun Nov 24 13:49:47 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CTL2000 -c CTL2000
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file datapath/reg16/reg16.vhd
@@ -601,119 +633,129 @@ Info (12021): Found 2 design units, including 1 entities, in source file datapat
 Info (12021): Found 2 design units, including 1 entities, in source file ctl2000.vhd
     Info (12022): Found design unit 1: CTL2000-behavioral
     Info (12023): Found entity 1: CTL2000
+Info (12021): Found 2 design units, including 1 entities, in source file teste_cu.vhd
+    Info (12022): Found design unit 1: teste_CU-behavioral
+    Info (12023): Found entity 1: teste_CU
 Info (12127): Elaborating entity "CTL2000" for the top level hierarchy
 Info (12128): Elaborating entity "CU" for hierarchy "CU:control"
 Warning (10541): VHDL Signal Declaration warning at CU.vhd(17): used implicit default value for signal "Rin_ld" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at CU.vhd(18): used implicit default value for signal "Rout_ld" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CU.vhd(19): used implicit default value for signal "R1_clr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CU.vhd(20): used implicit default value for signal "R2_clr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CU.vhd(21): used implicit default value for signal "R3_clr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at CU.vhd(69): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(71): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(73): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(75): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(77): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(79): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(81): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(83): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(85): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(87): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(89): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(91): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(93): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(95): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(97): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(99): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(101): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(110): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(113): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(114): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(116): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(119): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(120): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(122): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(118): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(123): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(124): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(126): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(128): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(129): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(131): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(133): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(135): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(136): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(139): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(140): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(143): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(142): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(144): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(146): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(148): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(153): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(154): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(161): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(168): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(177): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(178): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(185): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(192): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(150): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(151): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(158): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(165): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(175): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(176): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(183): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(190): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(200): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(201): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(202): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(209): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(216): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(208): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(215): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(225): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(226): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(233): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(240): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(249): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at CU.vhd(250): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(257): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(264): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(273): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(274): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(281): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(288): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(297): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(301): signal "comp_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(302): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(307): signal "comp_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(308): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(313): signal "comp_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at CU.vhd(314): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "pc_clr", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "IR_clr", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "sel_mux_pc", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "pc_ld", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "IR_ld", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "mem_adr", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "wren", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "sel_mux5", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "R1_ld", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "R2_ld", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "R3_ld", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "sel_5e2", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "sel_5e1", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "alu_sel", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at CU.vhd(105): inferring latch(es) for signal or variable "mux2_in1", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "mux2_in1[0]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[1]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[2]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[3]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[4]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[5]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[6]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[7]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[8]" at CU.vhd(105)
-Info (10041): Inferred latch for "mux2_in1[9]" at CU.vhd(105)
-Info (10041): Inferred latch for "alu_sel[0]" at CU.vhd(105)
-Info (10041): Inferred latch for "alu_sel[1]" at CU.vhd(105)
-Info (10041): Inferred latch for "alu_sel[2]" at CU.vhd(105)
-Info (10041): Inferred latch for "alu_sel[3]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_5e1[0]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_5e1[1]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_5e1[2]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_5e2[0]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_5e2[1]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_5e2[2]" at CU.vhd(105)
-Info (10041): Inferred latch for "R3_ld" at CU.vhd(105)
-Info (10041): Inferred latch for "R2_ld" at CU.vhd(105)
-Info (10041): Inferred latch for "R1_ld" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_mux5[0]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_mux5[1]" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_mux5[2]" at CU.vhd(105)
-Info (10041): Inferred latch for "wren" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[0]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[1]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[2]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[3]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[4]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[5]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[6]" at CU.vhd(105)
-Info (10041): Inferred latch for "mem_adr[7]" at CU.vhd(105)
-Info (10041): Inferred latch for "IR_ld" at CU.vhd(105)
-Info (10041): Inferred latch for "pc_ld" at CU.vhd(105)
-Info (10041): Inferred latch for "sel_mux_pc" at CU.vhd(105)
-Info (10041): Inferred latch for "IR_clr" at CU.vhd(105)
-Info (10041): Inferred latch for "pc_clr" at CU.vhd(105)
+Warning (10492): VHDL Process Statement warning at CU.vhd(251): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(258): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(265): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(275): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(276): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(283): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(290): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(300): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(305): signal "comp_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(306): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(312): signal "comp_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(313): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(319): signal "comp_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(320): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CU.vhd(333): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "R1_ld", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "R2_ld", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "R3_ld", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "sel_mux_pc", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "mem_adr", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "wren", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "sel_mux5", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "sel_5e2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "sel_5e1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "alu_sel", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CU.vhd(52): inferring latch(es) for signal or variable "mux2_in1", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "mux2_in1[0]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[1]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[2]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[3]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[4]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[5]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[6]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[7]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[8]" at CU.vhd(52)
+Info (10041): Inferred latch for "mux2_in1[9]" at CU.vhd(52)
+Info (10041): Inferred latch for "alu_sel[0]" at CU.vhd(52)
+Info (10041): Inferred latch for "alu_sel[1]" at CU.vhd(52)
+Info (10041): Inferred latch for "alu_sel[2]" at CU.vhd(52)
+Info (10041): Inferred latch for "alu_sel[3]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_5e1[0]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_5e1[1]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_5e1[2]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_5e2[0]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_5e2[1]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_5e2[2]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_mux5[0]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_mux5[1]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_mux5[2]" at CU.vhd(52)
+Info (10041): Inferred latch for "wren" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[0]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[1]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[2]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[3]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[4]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[5]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[6]" at CU.vhd(52)
+Info (10041): Inferred latch for "mem_adr[7]" at CU.vhd(52)
+Info (10041): Inferred latch for "sel_mux_pc" at CU.vhd(52)
+Info (10041): Inferred latch for "R3_ld" at CU.vhd(52)
+Info (10041): Inferred latch for "R2_ld" at CU.vhd(52)
+Info (10041): Inferred latch for "R1_ld" at CU.vhd(52)
 Info (12128): Elaborating entity "GG210" for hierarchy "GG210:datapath"
-Warning (10492): VHDL Process Statement warning at GG210.vhd(189): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "PC" for hierarchy "GG210:datapath|PC:pcounter"
-Warning (10492): VHDL Process Statement warning at PC.vhd(22): signal "pc_ld" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at PC.vhd(24): signal "pc_ld" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at PC.vhd(28): signal "addr_tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "PRGDATA" for hierarchy "GG210:datapath|PRGDATA:pmem"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component"
@@ -774,42 +816,31 @@ Info (10041): Inferred latch for "result[5]" at ALU.vhd(20)
 Info (10041): Inferred latch for "result[6]" at ALU.vhd(20)
 Info (10041): Inferred latch for "result[7]" at ALU.vhd(20)
 Info (12128): Elaborating entity "COMP" for hierarchy "GG210:datapath|COMP:compa"
-Warning (14025): LATCH primitive "CU:control|alu_sel[0]" is permanently disabled
-Warning (14025): LATCH primitive "CU:control|alu_sel[1]" is permanently disabled
-Warning (14025): LATCH primitive "CU:control|alu_sel[2]" is permanently disabled
-Warning (14025): LATCH primitive "CU:control|sel_5e2[1]" is permanently disabled
-Warning (14025): LATCH primitive "CU:control|sel_5e2[2]" is permanently disabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[0]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[1]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[2]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[3]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[4]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[5]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[6]" is permanently enabled
-Warning (14026): LATCH primitive "GG210:datapath|ALU:ula|result[7]" is permanently enabled
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[8]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[9]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[10]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[11]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[12]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[13]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[14]"
-        Warning (14320): Synthesized away node "GG210:datapath|PRGDATA:pmem|altsyncram:altsyncram_component|altsyncram_g181:auto_generated|q_a[15]"
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|q_a[7]"
+Warning (13012): Latch CU:control|sel_mux_pc has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.fetch
+Warning (13012): Latch CU:control|sel_5e2[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.exe_mov
+Warning (13012): Latch CU:control|sel_5e2[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.exe_st
+Warning (13012): Latch CU:control|sel_5e2[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.exe_st
+Warning (13012): Latch CU:control|sel_5e1[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GG210:datapath|REG16:IR|data_out[9]
+Warning (13012): Latch CU:control|sel_5e1[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal GG210:datapath|REG16:IR|data_out[9]
+Warning (13012): Latch CU:control|R3_ld has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.reset
+Warning (13012): Latch CU:control|R2_ld has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.reset
+Warning (13012): Latch CU:control|sel_mux5[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.exe_mov
+Warning (13012): Latch CU:control|sel_mux5[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.exe_ld
+Warning (13012): Latch CU:control|R1_ld has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.reset
+Warning (13012): Latch CU:control|wren has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CU:control|pstate.exe_st
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "teste[0]" is stuck at GND
     Warning (13410): Pin "pinout[0]" is stuck at GND
     Warning (13410): Pin "pinout[1]" is stuck at GND
     Warning (13410): Pin "pinout[2]" is stuck at GND
@@ -818,11 +849,9 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "pinout[5]" is stuck at GND
     Warning (13410): Pin "pinout[6]" is stuck at GND
     Warning (13410): Pin "pinout[7]" is stuck at GND
-Info (17049): 37 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 7 MSB VCC or GND address nodes from RAM block "GG210:datapath|MEMDATA:mem|altsyncram:altsyncram_component|altsyncram_gra1:auto_generated|ALTSYNCRAM"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pinin[0]"
     Warning (15610): No output dependent on input pin "pinin[1]"
     Warning (15610): No output dependent on input pin "pinin[2]"
@@ -831,16 +860,15 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pinin[5]"
     Warning (15610): No output dependent on input pin "pinin[6]"
     Warning (15610): No output dependent on input pin "pinin[7]"
-    Warning (15610): No output dependent on input pin "rst"
-Info (21057): Implemented 41 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 283 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 8 logic cells
-    Info (21064): Implemented 7 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 128 warnings
-    Info: Peak virtual memory: 4651 megabytes
-    Info: Processing ended: Mon Nov 18 15:01:21 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 217 logic cells
+    Info (21064): Implemented 24 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 127 warnings
+    Info: Peak virtual memory: 4663 megabytes
+    Info: Processing ended: Sun Nov 24 13:49:56 2019
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:04
 
 

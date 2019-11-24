@@ -6,23 +6,18 @@ entity GG210 is
 	port
 	(
 	teste : out std_LOGIC_VECTOR(7 downto 0);
+	clr :in std_logic;
 	pinin : in std_LOGIC_VECTOR(7 downto 0);
 	pinout : out std_LOGIC_VECTOR(7 downto 0);
 	clk :in std_logic;
 	alu_sel : in std_logic_vector(3 downto 0);
 	sel_mux5 : in std_LOGIC_VECTOR(2 downto 0);
 	pc_ld : in std_LOGIC;
-	pc_clr : in std_LOGIC;
 	R1_ld :in std_LOGIC ;
 	R2_ld :in std_LOGIC ;
 	R3_ld :in std_LOGIC ;
 	Rin_ld :in std_LOGIC ;
 	Rout_ld :in std_LOGIC ;
-	R1_clr :in std_LOGIC ;
-	R2_clr :in std_LOGIC;
-	R3_clr :in std_LOGIC;
-	Rin_clr :in std_LOGIC;
-	Rout_clr :in std_LOGIC;
 	IR_out:out std_LOGIC_VECTOR(15 downto 0);
 	sel_5e1 : in std_LOGIC_VECTOR(2 downto 0);
 	sel_5e2 : in std_LOGIC_VECTOR(2 downto 0);
@@ -30,7 +25,6 @@ entity GG210 is
 	mem_adr : in std_LOGIC_VECTOR(7 downto 0);
 	sel_mux_pc : in std_LOGIC;
 	IR_ld : in std_LOGIC;
-	IR_clr : in std_LOGIC;
 	wren : in std_LOGIC;
 	comp_out : out std_logic_vector(2 downto 0)
 	);
@@ -113,7 +107,6 @@ architecture behavioral of GG210 is
 		 sel : in std_logic;                      
 		 a   : in std_logic_vector(9 downto 0);   
 		 b   : in std_logic_vector(9 downto 0);
-		 --y   : in std_logic_vector(9 downto 0);	 
 		 out_mux : out std_logic_vector(9 downto 0) 
 	  );
 	end component;
@@ -131,7 +124,7 @@ architecture behavioral of GG210 is
 		PORT
 		(
 			address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-			clock		: IN STD_LOGIC  := '1';
+			clock		: IN STD_LOGIC;
 			q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
 		);
 	END COMPONENT;
@@ -167,17 +160,17 @@ end COMPONENT;
 	--io
 	signal mux5e_newin : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 begin
-	pcounter : pc port map (clk, pc_ld, pc_clr, pc_in, pc_out);
+	pcounter : pc port map (clk, pc_ld, clr, pc_in, pc_out);
 	pmem : PRGDATA port map (pc_out, clk, q);
 	ad1 : add1 port map(pc_out, add1_out);
 	R0:REG0 PORT MAP (CLK,MUX4e_out,R0_OUT);
-	R1:REG8 PORT MAP (CLK,r1_ld,r1_clr,MUX4e_out,R1_OUT);
-	R2:REG8 PORT MAP (CLK,r2_ld,r2_clr,MUX4e_out,R2_OUT);
-	R3:REG8 PORT MAP (CLK,r3_ld,r3_clr,MUX4e_out,R3_OUT);
-	RIN:REG8 PORT MAP (CLK,rin_ld,rin_clr,pinin,mux5e_newin);
-	ROUT:REG8 PORT MAP (CLK,rout_ld,rout_clr,mux5e1_out,pinout);
+	R1:REG8 PORT MAP (CLK,r1_ld,clr,MUX4e_out,R1_OUT);
+	R2:REG8 PORT MAP (CLK,r2_ld,clr,MUX4e_out,R2_OUT);
+	R3:REG8 PORT MAP (CLK,r3_ld,clr,MUX4e_out,R3_OUT);
+	RIN:REG8 PORT MAP (CLK,rin_ld,clr,pinin,mux5e_newin);
+	ROUT:REG8 PORT MAP (CLK,rout_ld,clr,mux5e1_out,pinout);
 	mux2 : mux2E port map(sel_mux_pc, mux2_in1, add1_out, pc_in);
-	IR: REG16 port map (clk,IR_ld, IR_clr,q,IR_out);
+	IR: REG16 port map (clk,IR_ld, clr,q,IR_out);
 	mem : memdata port map(mem_adr, clk, mux5e2_out, wren,mem_out);
 	mux5 : mux5e port map(sel_mux5, mem_adr, mem_out, mux5e2_out, mux5e_newin, alu_out, mux4e_out);
 	mux5E1: mux5E port map(SEL_5E1,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out,MUX5E1_OUT);
@@ -186,6 +179,9 @@ begin
 	compa : comp port map(mux5E1_OUT, mux5e2_out, comp_out);
 	process(clk)
 	begin
-		teste <= alu_out;
+		
 	end process;
+	teste(0) <= ir_ld;
+	teste(1) <= pc_ld;--(7 downto 0);
+	teste(7 downto 2) <= q(5 downto 0);
 end behavioral;
