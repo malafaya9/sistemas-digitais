@@ -6,12 +6,15 @@ entity GG210 is
 	port
 	(
 	teste : out std_LOGIC_VECTOR(7 downto 0);
+	tester1ld : out std_LOGIC;
+	teste4 : out std_LOGIC_VECTOR(7 downto 0);
+	teste5 : out std_LOGIC_VECTOR(7 downto 0);
 	clr :in std_logic;
 	pinin : in std_LOGIC_VECTOR(7 downto 0);
 	pinout : out std_LOGIC_VECTOR(7 downto 0);
 	clk :in std_logic;
 	alu_sel : in std_logic_vector(3 downto 0);
-	sel_mux5 : in std_LOGIC_VECTOR(2 downto 0);
+	sel_mux5 : in std_LOGIC_VECTOR(1 downto 0);
 	pc_ld : in std_LOGIC;
 	R1_ld :in std_LOGIC ;
 	R2_ld :in std_LOGIC ;
@@ -89,7 +92,20 @@ architecture behavioral of GG210 is
 		data_out: out std_logic_vector(7 downto 0)
 		);
 	end component;
-	
+
+	component MUX6E is
+	  port(
+		 sel : in std_logic_vector(2 downto 0);                      
+		 a   : in std_logic_vector(7 downto 0);   
+		 b   : in std_logic_vector(7 downto 0);
+		 c   : in std_logic_vector(7 downto 0);
+		 d   : in std_logic_vector(7 downto 0);
+		 e   : in std_logic_vector(7 downto 0);
+		 f   : in std_logic_vector(7 downto 0);
+		 out_mux : out std_logic_vector(7 downto 0) 		 
+	  );
+	end component;
+
 	component MUX5E is
 	  port(
 		 sel : in std_logic_vector(2 downto 0);                      
@@ -102,6 +118,16 @@ architecture behavioral of GG210 is
 	  );
 	end component;
 
+	component MUX4E is
+	  port(
+		 sel : in std_logic_vector(1 downto 0);                      
+		 a   : in std_logic_vector(7 downto 0);   
+		 b   : in std_logic_vector(7 downto 0);
+		 c   : in std_logic_vector(7 downto 0);
+		 d   : in std_logic_vector(7 downto 0);
+		 out_mux : out std_logic_vector(7 downto 0) 		 
+	  );
+	  end component;
 	component MUX2E is
 	  port(
 		 sel : in std_logic;                      
@@ -172,16 +198,18 @@ begin
 	mux2 : mux2E port map(sel_mux_pc, mux2_in1, add1_out, pc_in);
 	IR: REG16 port map (clk,IR_ld, clr,q,IR_out);
 	mem : memdata port map(mem_adr, clk, mux5e2_out, wren,mem_out);
-	mux5 : mux5e port map(sel_mux5, mem_adr, mem_out, mux5e2_out, mux5e_newin, alu_out, mux4e_out);
+	mux5 : MUX4E port map(sel_mux5, mem_out, mux5e2_out, mux5e_newin, alu_out, mux4e_out);
 	mux5E1: mux5E port map(SEL_5E1,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out,MUX5E1_OUT);
-	mux5E2: mux5E port map(SEL_5E2,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out,MUX5E2_OUT);
+	mux5E2: mux6E port map(SEL_5E2,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out, mem_adr,MUX5E2_OUT);
 	ula: alu port map(alu_sel,mux5e1_out,mux5e2_out,alu_out);
 	compa : comp port map(mux5E1_OUT, mux5e2_out, comp_out);
 	process(clk)
 	begin
-		
 	end process;
-	teste(0) <= ir_ld;
-	teste(1) <= pc_ld;--(7 downto 0);
-	teste(7 downto 2) <= q(5 downto 0);
+	--teste(0) <= ir_ld;
+	--teste(1) <= pc_ld;--(7 downto 0);
+	teste <= alu_out(7 downto 0);
+	tester1ld<=r1_ld;
+	teste4 <= mux5E2_OUT;
+	teste5<=mux5e1_out;
 end behavioral;

@@ -27,8 +27,10 @@ begin
 			when "0010" => result <= val1;--store,move, a UP que vai carregar o resultado da ALU na memória, a alu só passa adiante.
 			when "0011" => result <= val1 AND val2;		--AND,IAND
 			when "0100" => result <= val1 OR val2;		--OR,IOR
-			when "0101" => result <= NOT 	val1;		--NOT,INOT
+			when "0101" => result <= NOT 	val2;		--NOT,INOT
 			when "0111" => result <= val1 XOR val2	;	--XOR,IXOR
+			when "0110" => result <= std_logic_vector(shift_left(unsigned(val1),to_integer(unsigned(val2))));	--Shift_left
+			when "1000" => result <= std_logic_vector(shift_right(unsigned(val1),to_integer(unsigned(val2)))); --Shift_right
 			when others =>
 		end case;
 		op_out <= result;

@@ -53,6 +53,12 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
+set_global_assignment -name VHDL_FILE DATAPATH/MUX4E/MUX4E.vhd
+set_global_assignment -name VHDL_FILE DATAPATH/mux6e/mux6e.vhd
 set_global_assignment -name MIF_FILE DATAPATH/PRGDATA/PRGDATA.mif
 set_global_assignment -name VHDL_FILE DATAPATH/REG16/REG16.vhd
 set_global_assignment -name VHDL_FILE DATAPATH/REG8/REG8.vhd
@@ -69,9 +75,25 @@ set_global_assignment -name VHDL_FILE CU/CU.vhd
 set_global_assignment -name VHDL_FILE DATAPATH/GG210.vhd
 set_global_assignment -name VHDL_FILE CTL2000.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE DATAPATH/PRGDATA/testebomgeralzão.vwf
-set_global_assignment -name SIMULATION_MODE FUNCTIONAL
-set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
-set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name VHDL_FILE teste_cu.vhd
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_N26 -to pinin[1]
+set_location_assignment PIN_N25 -to pinin[0]
+set_location_assignment PIN_P25 -to pinin[2]
+set_location_assignment PIN_AE14 -to pinin[3]
+set_location_assignment PIN_AF14 -to pinin[4]
+set_location_assignment PIN_AD13 -to pinin[5]
+set_location_assignment PIN_AC13 -to pinin[6]
+set_location_assignment PIN_C13 -to pinin[7]
+set_location_assignment PIN_N2 -to clk
+set_location_assignment PIN_Y18 -to pinout[0]
+set_location_assignment PIN_AA20 -to pinout[1]
+set_location_assignment PIN_U17 -to pinout[2]
+set_location_assignment PIN_U18 -to pinout[3]
+set_location_assignment PIN_V18 -to pinout[4]
+set_location_assignment PIN_W19 -to pinout[5]
+set_location_assignment PIN_AF22 -to pinout[6]
+set_location_assignment PIN_AE22 -to pinout[7]
 set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/Crowler/Documents/GitHub/sistemas-digitais/DATAPATH/PRGDATA/testebomgeralzão.vwf"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name CDF_FILE output_files/Chain7.cdf

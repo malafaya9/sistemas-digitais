@@ -1,23 +1,33 @@
 
 State Machine - |CTL2000|CU:control|pstate
-Name pstate.exe_jmph pstate.exe_jmpl pstate.exe_cmp pstate.exe_cjmp pstate.exe_goto pstate.exe_movi pstate.exe_ixor pstate.exe_inot pstate.exe_ior pstate.exe_iand pstate.exe_subi pstate.exe_addi pstate.exe_pinout pstate.exe_pinin pstate.exe_mov pstate.exe_st pstate.exe_ld pstate.decode pstate.fetch pstate.reset 
-pstate.reset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-pstate.fetch 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
-pstate.decode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
-pstate.exe_ld 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
-pstate.exe_st 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
-pstate.exe_mov 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
-pstate.exe_pinin 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
-pstate.exe_pinout 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
-pstate.exe_addi 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
-pstate.exe_subi 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
-pstate.exe_iand 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_ior 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_inot 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_ixor 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_movi 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_goto 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_cjmp 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_cmp 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_jmpl 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-pstate.exe_jmph 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Name pstate.exe_shr pstate.exe_shl pstate.exe_not pstate.exe_xor pstate.exe_or pstate.exe_and pstate.exe_sub pstate.exe_add pstate.exe_rst pstate.exe_nop pstate.exe_jmph pstate.exe_jmpl pstate.exe_cmp pstate.exe_cjmp pstate.exe_goto pstate.exe_movi pstate.exe_ixor pstate.exe_inot pstate.exe_ior pstate.exe_iand pstate.exe_subi pstate.exe_addi pstate.exe_pinout pstate.exe_pinin pstate.exe_mov pstate.exe_st pstate.exe_ld pstate.decode pstate.fetch pstate.reset 
+pstate.reset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+pstate.fetch 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+pstate.decode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+pstate.exe_ld 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+pstate.exe_st 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+pstate.exe_mov 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+pstate.exe_pinin 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+pstate.exe_pinout 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+pstate.exe_addi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+pstate.exe_subi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+pstate.exe_iand 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_ior 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_inot 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_ixor 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_movi 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_goto 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_cjmp 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_cmp 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_jmpl 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_jmph 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_nop 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_rst 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_add 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_sub 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_and 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_or 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_xor 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_not 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_shl 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+pstate.exe_shr 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
