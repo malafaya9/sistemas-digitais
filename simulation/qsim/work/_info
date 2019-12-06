@@ -4,10 +4,10 @@ K3
 cModel Technology
 Z0 dC:\Users\Crowler\Documents\GitHub\sistemas-digitais\simulation\qsim
 vCTL2000
-Z1 I8nb=[=ck;doDmGQzQb_o:0
+Z1 I`aRUS=jo<ZTimo4Bhjc5K2
 Z2 VDU0K^M6P7MD_Bn2HbKFZP3
 Z3 dC:\Users\Crowler\Documents\GitHub\sistemas-digitais\simulation\qsim
-Z4 w1575261230
+Z4 w1575653347
 Z5 8CTL2000.vo
 Z6 FCTL2000.vo
 L0 31
@@ -18,68 +18,68 @@ Z8 !s90 -work|work|CTL2000.vo|
 Z9 o-work work -O0
 Z10 n@c@t@l2000
 !i10b 1
-Z11 !s100 FV3R]7ehbUe537PcZn1;k1
+Z11 !s100 i:]OmELmf=BF[bi=`9InD2
 !s85 0
-Z12 !s108 1575261238.746000
+Z12 !s108 1575653359.952000
 Z13 !s107 CTL2000.vo|
 !s101 -O0
 vCTL2000_vlg_check_tst
 !i10b 1
-!s100 221kC;YTXBebnW8^YzYia3
-Ia??jE>_X>Gh9=Z0ZQ:1JY0
-VHMaH_?`QlTRbdeC[IgIQ90
+Z14 !s100 221kC;YTXBebnW8^YzYia3
+Z15 Ia??jE>_X>Gh9=Z0ZQ:1JY0
+Z16 VHMaH_?`QlTRbdeC[IgIQ90
 R3
-Z14 w1575261228
-Z15 8CTL2000.vt
-Z16 FCTL2000.vt
+Z17 w1575653345
+Z18 8CTL2000.vt
+Z19 FCTL2000.vt
 L0 61
 R7
 r1
 !s85 0
 31
-Z17 !s108 1575261239.536000
-Z18 !s107 CTL2000.vt|
-Z19 !s90 -work|work|CTL2000.vt|
+Z20 !s108 1575653361.036000
+Z21 !s107 CTL2000.vt|
+Z22 !s90 -work|work|CTL2000.vt|
 !s101 -O0
 R9
-Z20 n@c@t@l2000_vlg_check_tst
+Z23 n@c@t@l2000_vlg_check_tst
 vCTL2000_vlg_sample_tst
 !i10b 1
-Z21 !s100 Bf65oLo7f`Ag:PD_FCFFN3
-Z22 I>1lI2dIEoUHD0iCd;[70f2
-Z23 VLEiEem]?>^loE:l;lTHPA0
+Z24 !s100 Bf65oLo7f`Ag:PD_FCFFN3
+Z25 I>1lI2dIEoUHD0iCd;[70f2
+Z26 VLEiEem]?>^loE:l;lTHPA0
 R3
-R14
-R15
-R16
+R17
+R18
+R19
 L0 29
 R7
 r1
 !s85 0
 31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z27 n@c@t@l2000_vlg_sample_tst
+vCTL2000_vlg_vec_tst
+!i10b 1
+!s100 `zfg1V8dP>^G]XJh0Y_9H1
+IMEoSIAII8Q66jgJnNMLPl3
+Z28 VC3:?=5]>a4k`45XZ`IGl02
+R3
 R17
 R18
 R19
-!s101 -O0
-R9
-Z24 n@c@t@l2000_vlg_sample_tst
-vCTL2000_vlg_vec_tst
-!i10b 1
-!s100 Xce>kzIHGB`SRaAg>WkUk0
-IZ=3?U1WzTc9?;m3DChL;D3
-Z25 VC3:?=5]>a4k`45XZ`IGl02
-R3
-R14
-R15
-R16
-L0 1060
+Z29 L0 1060
 R7
 r1
 !s85 0
 31
-R17
-R18
-R19
+R20
+R21
+R22
 !s101 -O0
 R9
-Z26 n@c@t@l2000_vlg_vec_tst
+Z30 n@c@t@l2000_vlg_vec_tst

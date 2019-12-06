@@ -40,7 +40,9 @@ SIGNAL pstate: STATE_TYPE;
 SIGNAL state: STATE_TYPE := fetch;
 begin
 
-	teste2(15 downto 0) <=ir_out(15 downto 0);
+	
+	teste2(15 downto 3) <=ir_out(15 downto 3);
+	teste2(2 downto 0)<= comp_out;
 	process (clk, rst)
 	begin
 		if rst = '1' then
@@ -75,7 +77,7 @@ begin
 				R3_ld<='0';
 				rin_ld <= '0';
 				rout_ld <= '0';
-				if ir_out(15 downto 11)="10000" then
+				if ir_out(15 downto 11)="10000" or ir_out(15 downto 11)="10001" or ir_out(15 downto 11)="10010" or ir_out(15 downto 11)="10011" then
 					sel_mux_pc <= '0';
 				else
 					sel_mux_pc <= '1';
@@ -84,6 +86,8 @@ begin
 				pc_ld <= '0';
 				ir_ld <= '0';
 				R1_ld <= '0';
+				R2_ld <= '0';
+				R3_ld <= '0';
 				if ir_out(15 downto 11) = "00000" then
 					state <= exe_nop;
 				elsif ir_out(15 downto 11) = "00001" then
@@ -128,11 +132,33 @@ begin
 					pc_ld <= '1';
 					--ir_ld <= '1';
 				elsif ir_out(15 downto 11) = "10001" then
-					state <= exe_cjmp;
+					if comp_out = "001" then 
+							state <= exe_cjmp;
+						mux2_in1<=ir_out(10 downto 1);
+						sel_mux_pc<='0';
+						pc_ld <= '1';
+						--ir_ld <= '1';
+					end if;
+					--state <= fetch;
 				elsif ir_out(15 downto 11) = "10010" then 
-					state <= exe_jmph;
+					if comp_out = "010" then 
+						state <= exe_jmph;
+						mux2_in1<=ir_out(10 downto 1);
+						sel_mux_pc<='0';
+						pc_ld <= '1';
+						--ir_ld <= '1';
+					end if;
+					state <= fetch;
 				elsif ir_out(15 downto 11) = "10011" then 
-					state <= exe_jmpl;
+					
+					if comp_out = "100" then 
+						state <= exe_jmpl;
+						mux2_in1<=ir_out(10 downto 1);
+						sel_mux_pc<='0';
+						pc_ld <= '1';
+						--ir_ld <= '1';
+					end if;
+					--state <= fetch;
 				elsif ir_out(15 downto 11) = "01111" then 
 					state <= exe_cmp;
 				elsif ir_out(15 downto 11) = "00101" then
@@ -433,25 +459,22 @@ begin
 				--ir_ld<='1';
 			when exe_cjmp =>
 				state <= fetch;
-				if comp_out = "100" then 
-					mux2_in1<=ir_out(10 downto 1);
-					sel_mux_pc<='0';
-					--pc_ld <= '1';
-				end if;
+				--mux2_in1<=ir_out(10 downto 1);
+				sel_mux_pc<='1';
+				--pc_ld<='0';
+				--ir_ld<='1';
 			when exe_jmph => 
 				state <= fetch;
-				if comp_out = "010" then 
-					mux2_in1<=ir_out(10 downto 1);
-					sel_mux_pc<='0';
-					--pc_ld <= '1';
-				end if;
+				--mux2_in1<=ir_out(10 downto 1);
+				sel_mux_pc<='1';
+				--pc_ld<='0';
+				--ir_ld<='1';
 			when exe_jmpl =>
 				state <= fetch;
-				if comp_out = "001" then 
-					mux2_in1<=ir_out(10 downto 1);
-					sel_mux_pc<='0';
-					--pc_ld <= '1';
-				end if;
+				--mux2_in1<=ir_out(10 downto 1);
+				sel_mux_pc<='1';
+				--pc_ld<='0';
+				--ir_ld<='1';
 			when exe_rst =>
 				state <= fetch;
 				ctrl_reset <= '1';
@@ -486,7 +509,20 @@ begin
 				end if;
 				rout_ld<='1';
 			when exe_cmp =>
+			--###################################################################################
 				state <= fetch;
+				if ir_out(0)='0' then
+					mem_adr <= ir_out(8 downto 1);
+					sel_5e2 <="101";
+				else
+					sel_5e2(2) <='0';
+					sel_5e2(1 downto 0) <=ir_out(8 downto 7);
+				end if;
+				sel_5e1(2) <='0';
+				sel_5e1(1 downto 0) <=ir_out(10 downto 9);
+				
+				--alu_sel <="0100";
+				--sel_mux5 <= "11";
 			when exe_movi =>
 				state <= fetch;
 			when exe_nop =>

@@ -208,8 +208,8 @@ begin
 	end process;
 	--teste(0) <= ir_ld;
 	--teste(1) <= pc_ld;--(7 downto 0);
-	teste <= alu_out(7 downto 0);
-	tester1ld<=r1_ld;
+	teste <= r2_out(7 downto 0);
+	tester1ld<=r2_ld;
 	teste4 <= mux5E2_OUT;
 	teste5<=mux5e1_out;
 end behavioral;

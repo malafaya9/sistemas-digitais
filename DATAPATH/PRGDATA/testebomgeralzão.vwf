@@ -1,3 +1,4 @@
+/* Simulator = Quartus II Simulator */
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
 editor if you plan to continue editing the block that represents it in
@@ -739,8 +740,7 @@ TRANSITION_LIST("pinin[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 290.0;
-		LEVEL 0 FOR 350.0;
+		LEVEL 0 FOR 640.0;
 		LEVEL 1 FOR 270.0;
 		LEVEL 0 FOR 90.0;
 	}
@@ -760,8 +760,7 @@ TRANSITION_LIST("pinin[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 290.0;
-		LEVEL 0 FOR 710.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
