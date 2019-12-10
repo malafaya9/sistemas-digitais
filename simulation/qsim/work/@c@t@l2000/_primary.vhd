@@ -7,6 +7,7 @@ entity CTL2000 is
         teste4          : out    vl_logic_vector(7 downto 0);
         teste5          : out    vl_logic_vector(7 downto 0);
         teste2          : out    vl_logic_vector(15 downto 0);
+        teste3          : out    vl_logic_vector(2 downto 0);
         pinin           : in     vl_logic_vector(7 downto 0);
         pinout          : out    vl_logic_vector(7 downto 0);
         clk             : in     vl_logic;

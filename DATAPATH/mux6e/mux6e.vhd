@@ -11,7 +11,7 @@ entity MUX6E is
 	 e   : in std_logic_vector(7 downto 0);
 	 f   : in std_logic_vector(7 downto 0);
 	 --y   : in std_logic_vector(9 downto 0);	 
-	 out_mux : out std_logic_vector(7 downto 0) 
+	 out_mux : out std_logic_vector(7 downto 0):="00000000"
     
   );
 end MUX6E;

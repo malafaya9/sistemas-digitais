@@ -17,6 +17,7 @@ entity GG210 is
 	sel_mux5 : in std_LOGIC_VECTOR(1 downto 0);
 	pc_ld : in std_LOGIC;
 	R1_ld :in std_LOGIC ;
+	RC_ld :in std_LOGIC ;
 	R2_ld :in std_LOGIC ;
 	R3_ld :in std_LOGIC ;
 	Rin_ld :in std_LOGIC ;
@@ -185,9 +186,10 @@ end COMPONENT;
 	signal mux5e2_out : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
 	--io
 	signal mux5e_newin : std_LOGIC_VECTOR(7 downto 0) := (others => '0');
+	signal COMPYES : std_LOGIC_VECTOR(2 downto 0) := (others => '0');
 begin
 	pcounter : pc port map (clk, pc_ld, clr, pc_in, pc_out);
-	pmem : PRGDATA port map (pc_out, clk, q);
+	pmem : PRGDATA port map (pc_out,  clk, q);
 	ad1 : add1 port map(pc_out, add1_out);
 	R0:REG0 PORT MAP (CLK,MUX4e_out,R0_OUT);
 	R1:REG8 PORT MAP (CLK,r1_ld,clr,MUX4e_out,R1_OUT);
@@ -202,14 +204,15 @@ begin
 	mux5E1: mux5E port map(SEL_5E1,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out,MUX5E1_OUT);
 	mux5E2: mux6E port map(SEL_5E2,R0_OUT,R1_OUT,R2_OUT,R3_OUT,MUX4e_out, mem_adr,MUX5E2_OUT);
 	ula: alu port map(alu_sel,mux5e1_out,mux5e2_out,alu_out);
-	compa : comp port map(mux5E1_OUT, mux5e2_out, comp_out);
+	compa : comp port map(mux5E1_OUT, mux5e2_out, COMP_Out);
+	--compreg : Rc port map(clk,rc_ld,clr,compyES,comp_out);
 	process(clk)
 	begin
 	end process;
 	--teste(0) <= ir_ld;
 	--teste(1) <= pc_ld;--(7 downto 0);
-	teste <= r2_out(7 downto 0);
-	tester1ld<=r2_ld;
+	teste <= r1_out(7 downto 0);
+	tester1ld<=pc_ld;
 	teste4 <= mux5E2_OUT;
-	teste5<=mux5e1_out;
+	teste5<=pc_out(7 downto 0);
 end behavioral;

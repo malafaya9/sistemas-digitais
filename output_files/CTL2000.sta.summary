@@ -3,102 +3,102 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'CU:control|alu_sel[0]'
-Slack : -17.955
-TNS   : -135.962
+Slack : -17.690
+TNS   : -132.440
 
-Type  : Slow Model Setup 'CU:control|pstate.decode'
-Slack : -13.400
-TNS   : -51.301
+Type  : Slow Model Setup 'CU:control|pstate.exe_cmp'
+Slack : -15.528
+TNS   : -67.075
 
 Type  : Slow Model Setup 'clk'
-Slack : -10.578
-TNS   : -523.987
-
-Type  : Slow Model Setup 'CU:control|pstate.exe_pinout'
-Slack : -5.419
-TNS   : -26.290
-
-Type  : Slow Model Setup 'CU:control|pstate.exe_ld'
-Slack : -5.077
-TNS   : -51.831
-
-Type  : Slow Model Setup 'CU:control|pstate.exe_addi'
-Slack : -4.210
-TNS   : -67.577
-
-Type  : Slow Model Setup 'CU:control|pstate.exe_rst'
-Slack : -4.183
-TNS   : -31.979
+Slack : -13.051
+TNS   : -626.607
 
 Type  : Slow Model Setup 'CU:control|pstate.exe_add'
-Slack : -3.910
-TNS   : -17.796
+Slack : -4.658
+TNS   : -19.573
 
-Type  : Slow Model Hold 'CU:control|pstate.exe_add'
-Slack : -3.234
-TNS   : -4.437
+Type  : Slow Model Setup 'CU:control|pstate.decode'
+Slack : -2.817
+TNS   : -46.242
 
-Type  : Slow Model Hold 'CU:control|pstate.exe_ld'
-Slack : -3.136
-TNS   : -4.714
+Type  : Slow Model Setup 'CU:control|pstate.exe_pinout'
+Slack : -1.910
+TNS   : -12.927
 
-Type  : Slow Model Hold 'CU:control|pstate.decode'
-Slack : -2.206
-TNS   : -19.010
+Type  : Slow Model Setup 'CU:control|pstate.exe_ld'
+Slack : -1.672
+TNS   : -10.703
 
-Type  : Slow Model Hold 'clk'
-Slack : -1.996
-TNS   : -25.480
-
-Type  : Slow Model Hold 'CU:control|pstate.exe_addi'
-Slack : -1.827
-TNS   : -12.924
+Type  : Slow Model Setup 'CU:control|pstate.exe_rst'
+Slack : -1.570
+TNS   : -13.477
 
 Type  : Slow Model Hold 'CU:control|pstate.exe_rst'
-Slack : -1.383
-TNS   : -8.250
+Slack : -4.498
+TNS   : -35.284
+
+Type  : Slow Model Hold 'CU:control|pstate.decode'
+Slack : -3.953
+TNS   : -41.419
 
 Type  : Slow Model Hold 'CU:control|pstate.exe_pinout'
-Slack : -1.342
-TNS   : -3.776
+Slack : -3.915
+TNS   : -22.942
+
+Type  : Slow Model Hold 'CU:control|pstate.exe_cmp'
+Slack : -3.823
+TNS   : -13.904
+
+Type  : Slow Model Hold 'CU:control|pstate.exe_ld'
+Slack : -3.672
+TNS   : -22.911
+
+Type  : Slow Model Hold 'CU:control|pstate.exe_add'
+Slack : -2.805
+TNS   : -8.874
+
+Type  : Slow Model Hold 'clk'
+Slack : -2.236
+TNS   : -48.033
 
 Type  : Slow Model Hold 'CU:control|alu_sel[0]'
-Slack : 0.583
-TNS   : 0.000
+Slack : -0.071
+TNS   : -0.078
 
 Type  : Slow Model Recovery 'clk'
-Slack : -0.033
-TNS   : -0.066
+Slack : -0.586
+TNS   : -12.147
 
 Type  : Slow Model Removal 'clk'
-Slack : -0.558
-TNS   : -3.994
+Slack : 0.134
+TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk'
 Slack : -2.000
-TNS   : -308.220
+TNS   : -311.220
 
-Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.decode'
-Slack : -0.166
-TNS   : -0.996
+Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.exe_cmp'
+Slack : -1.748
+TNS   : -19.638
 
 Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.exe_pinout'
-Slack : -0.166
-TNS   : -0.996
+Slack : -1.748
+TNS   : -19.638
 
 Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.exe_rst'
-Slack : -0.166
-TNS   : -0.996
+Slack : -1.748
+TNS   : -19.638
 
-Type  : Slow Model Minimum Pulse Width 'CU:control|alu_sel[0]'
-Slack : 0.500
-TNS   : 0.000
+Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.decode'
+Slack : -1.123
+TNS   : -6.738
 
 Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.exe_add'
-Slack : 0.500
+Slack : 0.009
 TNS   : 0.000
 
-Type  : Slow Model Minimum Pulse Width 'CU:control|pstate.exe_addi'
+Type  : Slow Model Minimum Pulse Width 'CU:control|alu_sel[0]'
 Slack : 0.500
 TNS   : 0.000
 
@@ -107,102 +107,102 @@ Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'CU:control|alu_sel[0]'
-Slack : -8.379
-TNS   : -63.305
+Slack : -7.262
+TNS   : -55.902
 
-Type  : Fast Model Setup 'CU:control|pstate.decode'
-Slack : -6.215
-TNS   : -20.050
+Type  : Fast Model Setup 'CU:control|pstate.exe_cmp'
+Slack : -6.452
+TNS   : -21.866
 
 Type  : Fast Model Setup 'clk'
-Slack : -4.778
-TNS   : -188.043
-
-Type  : Fast Model Setup 'CU:control|pstate.exe_pinout'
-Slack : -2.158
-TNS   : -10.543
-
-Type  : Fast Model Setup 'CU:control|pstate.exe_ld'
-Slack : -1.982
-TNS   : -21.623
-
-Type  : Fast Model Setup 'CU:control|pstate.exe_addi'
-Slack : -1.909
-TNS   : -28.386
+Slack : -5.121
+TNS   : -221.229
 
 Type  : Fast Model Setup 'CU:control|pstate.exe_add'
-Slack : -1.749
-TNS   : -8.139
+Slack : -2.135
+TNS   : -9.104
+
+Type  : Fast Model Setup 'CU:control|pstate.decode'
+Slack : -1.145
+TNS   : -13.545
+
+Type  : Fast Model Setup 'CU:control|pstate.exe_pinout'
+Slack : -0.565
+TNS   : -2.423
 
 Type  : Fast Model Setup 'CU:control|pstate.exe_rst'
-Slack : -1.596
-TNS   : -12.329
+Slack : -0.349
+TNS   : -1.401
 
-Type  : Fast Model Hold 'CU:control|pstate.exe_ld'
-Slack : -1.431
-TNS   : -2.115
-
-Type  : Fast Model Hold 'CU:control|pstate.exe_add'
-Slack : -1.394
-TNS   : -1.947
-
-Type  : Fast Model Hold 'clk'
-Slack : -1.168
-TNS   : -25.003
+Type  : Fast Model Setup 'CU:control|pstate.exe_ld'
+Slack : -0.158
+TNS   : -0.624
 
 Type  : Fast Model Hold 'CU:control|pstate.decode'
-Slack : -1.000
-TNS   : -6.870
-
-Type  : Fast Model Hold 'CU:control|pstate.exe_addi'
-Slack : -0.794
-TNS   : -5.511
+Slack : -2.090
+TNS   : -21.104
 
 Type  : Fast Model Hold 'CU:control|pstate.exe_rst'
-Slack : -0.617
-TNS   : -3.229
+Slack : -1.980
+TNS   : -18.293
 
 Type  : Fast Model Hold 'CU:control|pstate.exe_pinout'
-Slack : -0.600
-TNS   : -1.636
+Slack : -1.808
+TNS   : -11.700
+
+Type  : Fast Model Hold 'CU:control|pstate.exe_ld'
+Slack : -1.796
+TNS   : -11.336
+
+Type  : Fast Model Hold 'CU:control|pstate.exe_cmp'
+Slack : -1.684
+TNS   : -6.281
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.310
+TNS   : -31.078
+
+Type  : Fast Model Hold 'CU:control|pstate.exe_add'
+Slack : -1.241
+TNS   : -3.938
 
 Type  : Fast Model Hold 'CU:control|alu_sel[0]'
-Slack : 0.258
-TNS   : 0.000
+Slack : -0.350
+TNS   : -1.231
 
 Type  : Fast Model Recovery 'clk'
-Slack : 0.444
+Slack : 0.372
 TNS   : 0.000
 
 Type  : Fast Model Removal 'clk'
-Slack : -0.211
-TNS   : -1.211
+Slack : 0.103
+TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk'
 Slack : -2.000
-TNS   : -308.220
+TNS   : -311.220
 
-Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.decode'
-Slack : 0.218
-TNS   : 0.000
+Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.exe_cmp'
+Slack : -0.504
+TNS   : -3.024
 
 Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.exe_pinout'
-Slack : 0.218
-TNS   : 0.000
+Slack : -0.504
+TNS   : -3.024
 
 Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.exe_rst'
-Slack : 0.218
+Slack : -0.504
+TNS   : -3.024
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.decode'
+Slack : -0.211
+TNS   : -1.266
+
+Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.exe_add'
+Slack : 0.291
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'CU:control|alu_sel[0]'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.exe_add'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast Model Minimum Pulse Width 'CU:control|pstate.exe_addi'
 Slack : 0.500
 TNS   : 0.000
 

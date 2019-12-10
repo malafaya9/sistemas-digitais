@@ -5,6 +5,7 @@ entity CTL2000_vlg_check_tst is
         pinout          : in     vl_logic_vector(7 downto 0);
         teste           : in     vl_logic_vector(7 downto 0);
         teste2          : in     vl_logic_vector(15 downto 0);
+        teste3          : in     vl_logic_vector(2 downto 0);
         teste4          : in     vl_logic_vector(7 downto 0);
         teste5          : in     vl_logic_vector(7 downto 0);
         tester1ld       : in     vl_logic;

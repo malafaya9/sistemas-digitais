@@ -6,6 +6,7 @@ entity CU is
 	port 
 	(
 	teste2 : out std_LOGIC_VECTOR(15 downto 0);
+	teste3 : out std_LOGIC_VECTOR(2 downto 0);
 	clk : in std_logic;
 	rst :in std_logic;
 	ctrl_reset : out std_logic;
@@ -38,11 +39,12 @@ exe_add,exe_sub,exe_and,exe_or,exe_xor,exe_not,exe_shl,exe_shr
 );
 SIGNAL pstate: STATE_TYPE;
 SIGNAL state: STATE_TYPE := fetch;
+signal comp: std_logic_vector(2 downto 0) := (others => '0');
 begin
 
 	
-	teste2(15 downto 3) <=ir_out(15 downto 3);
-	teste2(2 downto 0)<= comp_out;
+	teste2 <=ir_out;
+	teste3<= comp;
 	process (clk, rst)
 	begin
 		if rst = '1' then
@@ -132,33 +134,38 @@ begin
 					pc_ld <= '1';
 					--ir_ld <= '1';
 				elsif ir_out(15 downto 11) = "10001" then
-					if comp_out = "001" then 
-							state <= exe_cjmp;
+					state <= exe_cjmp;
+					if comp = "001" then
 						mux2_in1<=ir_out(10 downto 1);
+						pc_ld <='1';
 						sel_mux_pc<='0';
-						pc_ld <= '1';
-						--ir_ld <= '1';
+					else
+						mux2_in1<="0000000100";
+						pc_ld <='0';
+						sel_mux_pc<='1';
 					end if;
-					--state <= fetch;
 				elsif ir_out(15 downto 11) = "10010" then 
-					if comp_out = "010" then 
-						state <= exe_jmph;
+					state <= exe_jmph;
+					if comp = "010" then
 						mux2_in1<=ir_out(10 downto 1);
+						pc_ld <='1';
 						sel_mux_pc<='0';
-						pc_ld <= '1';
-						--ir_ld <= '1';
+					else
+						mux2_in1<="0000000100";
+						pc_ld <='0';
+						sel_mux_pc<='1';
 					end if;
-					state <= fetch;
 				elsif ir_out(15 downto 11) = "10011" then 
-					
-					if comp_out = "100" then 
-						state <= exe_jmpl;
+					state <= exe_jmpl;
+					if comp = "100" then
 						mux2_in1<=ir_out(10 downto 1);
+						pc_ld <='1';
 						sel_mux_pc<='0';
-						pc_ld <= '1';
-						--ir_ld <= '1';
+					else
+						mux2_in1<="0000000110";
+						pc_ld <='0';
+						sel_mux_pc<='1';
 					end if;
-					--state <= fetch;
 				elsif ir_out(15 downto 11) = "01111" then 
 					state <= exe_cmp;
 				elsif ir_out(15 downto 11) = "00101" then
@@ -461,19 +468,19 @@ begin
 				state <= fetch;
 				--mux2_in1<=ir_out(10 downto 1);
 				sel_mux_pc<='1';
-				--pc_ld<='0';
+				pc_ld<='0';
 				--ir_ld<='1';
 			when exe_jmph => 
 				state <= fetch;
 				--mux2_in1<=ir_out(10 downto 1);
 				sel_mux_pc<='1';
-				--pc_ld<='0';
+				pc_ld<='0';
 				--ir_ld<='1';
 			when exe_jmpl =>
 				state <= fetch;
 				--mux2_in1<=ir_out(10 downto 1);
 				sel_mux_pc<='1';
-				--pc_ld<='0';
+				pc_ld<='0';
 				--ir_ld<='1';
 			when exe_rst =>
 				state <= fetch;
@@ -520,7 +527,7 @@ begin
 				end if;
 				sel_5e1(2) <='0';
 				sel_5e1(1 downto 0) <=ir_out(10 downto 9);
-				
+				comp <= comp_out;
 				--alu_sel <="0100";
 				--sel_mux5 <= "11";
 			when exe_movi =>

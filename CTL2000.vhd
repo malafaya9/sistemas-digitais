@@ -10,6 +10,7 @@ entity CTL2000 is
 	teste4 : out std_LOGIC_VECTOR(7 downto 0);
 	teste5 : out std_LOGIC_VECTOR(7 downto 0);
 	teste2 : out std_LOGIC_VECTOR(15 downto 0);
+	teste3 : out std_LOGIC_VECTOR(2 downto 0);
 	pinin: in std_LOGIC_VECTOR(7 downto 0);
 	pinout: out std_LOGIC_VECTOR(7 downto 0);
 	clk:in std_logic;
@@ -21,6 +22,7 @@ architecture behavioral of CTL2000 is
 		port 
 		(
 		teste2 : out std_LOGIC_VECTOR(15 downto 0);
+		teste3 : out std_LOGIC_VECTOR(2 downto 0);
 		clk : in std_logic;
 		rst :in std_logic;
 		ctrl_reset : out std_logic;
@@ -96,7 +98,7 @@ architecture behavioral of CTL2000 is
 	signal comp_out : std_logic_vector(2 downto 0) := (others => '0');
 begin
 	--pcounter : pc port map (clk, pc_ld, pc_clr, pc_in, pc_out);
-	control : cu port map(teste2, clk, signal_rst, ctrl_reset, alu_sel, sel_mux5, pc_ld, r1_ld, r2_ld, r3_ld, rin_ld, rout_ld, ir_out, sel_5e1, sel_5e2, mux2_in1, mem_adr, sel_mux_pc, ir_ld, wren, comp_out);
+	control : cu port map(teste2,teste3, clk, signal_rst, ctrl_reset, alu_sel, sel_mux5, pc_ld, r1_ld, r2_ld, r3_ld, rin_ld, rout_ld, ir_out, sel_5e1, sel_5e2, mux2_in1, mem_adr, sel_mux_pc, ir_ld, wren, comp_out);
 	datapath : gg210 port map(teste,tester1ld,teste4,teste5,signal_rst, pinin, pinout, clk, alu_sel, sel_mux5, pc_ld, r1_ld, r2_ld, r3_ld, rin_ld, rout_ld, ir_out, sel_5e1, sel_5e2, mux2_in1, mem_adr, sel_mux_pc, ir_ld, wren, comp_out);
 	process(clk)
 	begin
